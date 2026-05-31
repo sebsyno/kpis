@@ -10,253 +10,101 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
-  --navy: #0b1929;
-  --navy-mid: #122440;
-  --navy-light: #1e3a5f;
-  --gold: #c8a84b;
-  --gold-light: #e8c96a;
-  --cream: #f5f0e8;
-  --white: #ffffff;
-  --text-muted: rgba(245,240,232,0.55);
-  --text-dim: rgba(245,240,232,0.35);
-  --bad: #d98a7a;
-  --good: #8fc9a0;
-  --great: #e8c96a;
-  --serif: 'Outfit', sans-serif;
-  --sans: 'DM Sans', sans-serif;
+  --navy: #0b1929; --navy-mid: #122440; --navy-light: #1e3a5f;
+  --gold: #c8a84b; --gold-light: #e8c96a; --cream: #f5f0e8; --white: #ffffff;
+  --text-muted: rgba(245,240,232,0.55); --text-dim: rgba(245,240,232,0.35);
+  --bad: #d98a7a; --good: #8fc9a0; --great: #e8c96a;
+  --serif: 'Outfit', sans-serif; --sans: 'DM Sans', sans-serif;
 }
-
 html { scroll-behavior: smooth; }
+body { background: var(--navy); color: var(--cream); font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
 
-body {
-  background: var(--navy);
-  color: var(--cream);
-  font-family: var(--sans);
-  font-weight: 300;
-  line-height: 1.7;
-  overflow-x: hidden;
-}
-
-/* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 1.25rem 3rem;
-  background: rgba(11,25,41,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 0.5px solid rgba(200,168,75,0.25);
+  padding: 1.25rem 3rem; background: rgba(11,25,41,0.92);
+  backdrop-filter: blur(12px); border-bottom: 0.5px solid rgba(200,168,75,0.25);
 }
-.nav-logo {
-  font-family: var(--serif);
-  font-size: 1.15rem; font-weight: 500;
-  letter-spacing: 0.02em; color: var(--cream); text-decoration: none;
-}
+.nav-logo { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; letter-spacing: 0.02em; color: var(--cream); text-decoration: none; }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a {
-  font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--text-muted); text-decoration: none; transition: color 0.2s;
-  background: none; border: none; cursor: pointer; font-family: var(--sans);
-}
+.nav-links a { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; background: none; border: none; cursor: pointer; font-family: var(--sans); }
 .nav-links a:hover { color: var(--gold); }
 
-/* HERO */
-.hero {
-  min-height: 70vh;
-  display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 0 3rem 4rem; position: relative; overflow: hidden;
-}
-.hero-bg {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(30,58,95,0.5) 0%, transparent 70%),
-    linear-gradient(175deg, #0b1929 0%, #0f2236 50%, #0b1929 100%);
-}
-.hero-grid {
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(200,168,75,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(200,168,75,0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-.hero-accent {
-  position: absolute; top: 0; right: 10%;
-  width: 1px; height: 40vh;
-  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
-  opacity: 0.6;
-}
+.hero { min-height: 70vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 4rem; position: relative; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(30,58,95,0.5) 0%, transparent 70%), linear-gradient(175deg, #0b1929 0%, #0f2236 50%, #0b1929 100%); }
+.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(200,168,75,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(200,168,75,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+.hero-accent { position: absolute; top: 0; right: 10%; width: 1px; height: 40vh; background: linear-gradient(to bottom, transparent, var(--gold), transparent); opacity: 0.6; }
 .hero-content { position: relative; max-width: 820px; padding-top: 90px; }
-.hero-eyebrow {
-  font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 1.5rem;
-  opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
-}
-.hero-name {
-  font-family: var(--serif);
-  font-size: clamp(2.6rem, 6vw, 4.8rem);
-  font-weight: 300; line-height: 1.05; letter-spacing: 0.01em;
-  color: var(--white); margin-bottom: 0.75rem;
-  opacity: 0; animation: fadeUp 0.8s 0.35s forwards;
-}
+.hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
+.hero-name { font-family: var(--serif); font-size: clamp(2.6rem, 6vw, 4.8rem); font-weight: 300; line-height: 1.05; letter-spacing: 0.01em; color: var(--white); margin-bottom: 0.75rem; opacity: 0; animation: fadeUp 0.8s 0.35s forwards; }
 .hero-name em { font-style: italic; color: var(--gold); font-weight: 200; }
-.hero-divider {
-  width: 60px; height: 1px; background: var(--gold); margin: 1.5rem 0 2rem;
-  opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
-}
-.hero-intro {
-  font-size: 1.05rem; font-weight: 300; color: var(--text-muted);
-  max-width: 620px; line-height: 1.85;
-  opacity: 0; animation: fadeUp 0.8s 0.75s forwards;
-}
+.hero-divider { width: 60px; height: 1px; background: var(--gold); margin: 1.5rem 0 2rem; opacity: 0; animation: fadeUp 0.8s 0.6s forwards; }
+.hero-intro { font-size: 1.05rem; font-weight: 300; color: var(--text-muted); max-width: 620px; line-height: 1.85; opacity: 0; animation: fadeUp 0.8s 0.75s forwards; }
 
-/* SECTIONS */
 section { padding: 6rem 3rem; }
-.section-label {
-  font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 1rem;
-}
-.section-heading {
-  font-family: var(--serif);
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  font-weight: 500; color: var(--white); line-height: 1.15; margin-bottom: 1.25rem;
-}
+.section-label { font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.section-heading { font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 500; color: var(--white); line-height: 1.15; margin-bottom: 1.25rem; }
 .section-divider { width: 40px; height: 1px; background: var(--gold); margin-bottom: 2.5rem; }
 
-/* TABS */
-.tabs {
-  position: sticky; top: 72px; z-index: 50;
-  display: flex; gap: 1rem; flex-wrap: wrap;
-  padding: 1.5rem 3rem;
-  background: rgba(11,25,41,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 0.5px solid rgba(200,168,75,0.2);
-}
-.tab {
-  padding: 0.7rem 2rem; font-size: 0.78rem; letter-spacing: 0.12em;
-  text-transform: uppercase; cursor: pointer; font-family: var(--sans);
-  background: transparent; color: var(--text-muted);
-  border: 0.5px solid rgba(245,240,232,0.25); transition: all 0.25s;
-}
+.tabs { position: sticky; top: 72px; z-index: 50; display: flex; gap: 1rem; flex-wrap: wrap; padding: 1.5rem 3rem; background: rgba(11,25,41,0.92); backdrop-filter: blur(12px); border-bottom: 0.5px solid rgba(200,168,75,0.2); }
+.tab { padding: 0.7rem 2rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; font-family: var(--sans); background: transparent; color: var(--text-muted); border: 0.5px solid rgba(245,240,232,0.25); transition: all 0.25s; }
 .tab:hover { border-color: var(--gold); color: var(--gold); }
 .tab.active { background: var(--gold); color: var(--navy); font-weight: 500; border-color: var(--gold); }
 
-/* LEGEND */
-.legend {
-  display: flex; gap: 2rem; flex-wrap: wrap;
-  padding: 1.25rem 3rem; font-size: 0.72rem; letter-spacing: 0.06em;
-  color: var(--text-muted); border-bottom: 0.5px solid rgba(200,168,75,0.12);
-}
+.legend { display: flex; gap: 2rem; flex-wrap: wrap; padding: 1.25rem 3rem; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--text-muted); border-bottom: 0.5px solid rgba(200,168,75,0.12); }
 .legend span { display: flex; align-items: center; gap: 0.5rem; }
 .pill { width: 9px; height: 9px; display: inline-block; }
 .pill.bad { background: var(--bad); } .pill.good { background: var(--good); } .pill.great { background: var(--great); }
 
-/* DIVISION */
 .division { display: none; }
 .division.active { display: block; }
 
-/* CATEGORY */
-.cat-label {
-  font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--gold); margin: 3.5rem 0 1.5rem;
-  display: flex; align-items: center; gap: 0.75rem;
-}
+.cat-label { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin: 3.5rem 0 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
 .cat-label::after { content: ''; flex: 1; height: 0.5px; background: rgba(200,168,75,0.2); }
 .cat-label:first-child { margin-top: 0; }
 
-/* CARD GRID */
 .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-.card {
-  padding: 2.25rem 2.5rem;
-  border: 0.5px solid rgba(200,168,75,0.12);
-  position: relative; transition: background 0.3s;
-}
+.card { padding: 2.25rem 2.5rem; border: 0.5px solid rgba(200,168,75,0.12); position: relative; transition: background 0.3s; }
 .card:hover { background: rgba(30,58,95,0.4); }
-.card::before {
-  content: ''; position: absolute; top: 0; left: 0;
-  width: 3px; height: 0; background: var(--gold); transition: height 0.4s;
-}
+.card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--gold); transition: height 0.4s; }
 .card:hover::before { height: 100%; }
 .card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 0.4rem; }
-.card-head h3 {
-  font-family: var(--serif); font-size: 1.3rem; font-weight: 500; color: var(--white);
-}
-.abbr {
-  font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--gold); border: 0.5px solid rgba(200,168,75,0.3);
-  padding: 0.2rem 0.6rem; white-space: nowrap; flex-shrink: 0;
-}
+.card-head h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; color: var(--white); }
+.abbr { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); border: 0.5px solid rgba(200,168,75,0.3); padding: 0.2rem 0.6rem; white-space: nowrap; flex-shrink: 0; }
 .desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.25rem; }
 .desc em { color: var(--text-dim); font-style: italic; }
 
-/* FORMULA */
-.formula {
-  background: rgba(200,168,75,0.05);
-  border: 0.5px solid rgba(200,168,75,0.2);
-  border-left: 2px solid var(--gold);
-  padding: 0.8rem 1rem;
-  margin-bottom: 1.5rem;
-}
-.formula .frm-label {
-  display: block;
-  font-size: 0.56rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 0.45rem;
-}
-.formula .frm-body {
-  font-family: var(--serif); font-weight: 300;
-  font-size: 0.92rem; color: var(--cream); line-height: 1.55;
-}
+.formula { background: rgba(200,168,75,0.05); border: 0.5px solid rgba(200,168,75,0.2); border-left: 2px solid var(--gold); padding: 0.8rem 1rem; margin-bottom: 1.5rem; }
+.formula .frm-label { display: block; font-size: 0.56rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.45rem; }
+.formula .frm-body { font-family: var(--serif); font-weight: 300; font-size: 0.92rem; color: var(--cream); line-height: 1.55; }
 .formula .frm-body b { color: var(--gold-light); font-weight: 400; }
 .formula .frac { font-style: italic; }
 
-/* BENCHMARK SUBTITLE */
-.benchmark-title {
-  display: block;
-  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 0.6rem;
-}
+.benchmark-title { display: block; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
 
-/* TABLE */
 table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
 th, td { padding: 0.55rem 0.75rem; text-align: left; border-bottom: 0.5px solid rgba(200,168,75,0.1); }
-th {
-  font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--text-dim); font-weight: 400;
-}
+th { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); font-weight: 400; }
 td { color: var(--cream); }
 td:first-child { color: var(--text-muted); }
 .seg { color: var(--gold); font-size: 0.75rem; letter-spacing: 0.04em; }
 .bad { color: var(--bad); } .good { color: var(--good); } .great { color: var(--great); }
 
-/* NOTE */
-.note {
-  font-size: 0.8rem; color: var(--text-muted); line-height: 1.7;
-  margin-top: 1.25rem; padding-left: 1rem;
-  border-left: 2px solid rgba(200,168,75,0.3);
-}
+.note { font-size: 0.8rem; color: var(--text-muted); line-height: 1.7; margin-top: 1.25rem; padding-left: 1rem; border-left: 2px solid rgba(200,168,75,0.3); }
 
-/* IMPLEMENTATION */
 #implementation { background: var(--navy-mid); }
 .impl-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; max-width: 820px; }
-.impl-list li {
-  font-size: 0.92rem; color: var(--text-muted); padding-left: 1.5rem; position: relative; line-height: 1.8;
-}
+.impl-list li { font-size: 0.92rem; color: var(--text-muted); padding-left: 1.5rem; position: relative; line-height: 1.8; }
 .impl-list li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
 .impl-list strong { color: var(--cream); font-weight: 500; }
 
-/* FOOTER */
-footer {
-  padding: 2.5rem 3rem; border-top: 0.5px solid rgba(200,168,75,0.15);
-  font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.06em;
-  text-align: center; line-height: 1.8;
-}
+footer { padding: 2.5rem 3rem; border-top: 0.5px solid rgba(200,168,75,0.15); font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.06em; text-align: center; line-height: 1.8; }
 
-/* ANIMATIONS */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s, transform 0.7s; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* RESPONSIVE */
 @media (max-width: 800px) {
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
@@ -280,7 +128,6 @@ footer {
   </ul>
 </nav>
 
-<!-- HERO -->
 <header class="hero" id="top">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
@@ -293,13 +140,11 @@ footer {
   </div>
 </header>
 
-<!-- TABS -->
 <div class="tabs">
   <button class="tab active" data-tab="marketing">📈 Marketing</button>
   <button class="tab" data-tab="sales">💰 Sales</button>
 </div>
 
-<!-- LEGEND -->
 <div class="legend">
   <span><i class="pill bad"></i> Bad / Floor</span>
   <span><i class="pill good"></i> Good / Healthy</span>
@@ -309,7 +154,6 @@ footer {
 
 <!-- ===================== MARKETING ===================== -->
 <section class="division active" id="marketing">
-
   <p class="section-label">Marketing Division</p>
   <h2 class="section-heading">Attraction &amp; Acquisition</h2>
   <div class="section-divider"></div>
@@ -319,11 +163,11 @@ footer {
 
     <div class="card reveal">
       <div class="card-head"><h3>Cost Per Acquisition</h3><span class="abbr">CPA</span></div>
-      <p class="desc">How much you spend on marketing to win one paying customer. Lower is better. Because it depends entirely on deal size, it's best judged as a slice of the contract's value.</p>
+      <p class="desc">How much you spend on marketing to win one paying customer. Lower is better. Because it depends on deal size, it's best judged as a slice of the contract's value.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Total Marketing Spend ÷ Total Acquired Customers</span></span></div>
       <span class="benchmark-title">The Benchmark</span>
       <table>
-        <tr><th>Measured as % of contract value</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><th>As % of contract value</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&gt;50%</td><td class="good">&lt;33%</td><td class="great">&lt;20%</td></tr>
       </table>
       <div class="note">Rule of thumb: keep CPA below a third of a customer's first-year value. Read it next to CAC and LTV.</div>
@@ -335,8 +179,8 @@ footer {
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">(Total Sales + Marketing Expenses) ÷ Total New Customers Acquired</span></span></div>
       <span class="benchmark-title">The Benchmark</span>
       <table>
-        <tr><th>New CAC Ratio ($ spent per $1 new ARR)</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">$2.82 : $1</td><td class="good">$2.00 : $1</td><td class="great">&lt;$1.00 : $1</td></tr>
+        <tr><th>$ spent per $1 new ARR</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">$2.82:$1</td><td class="good">$2.00:$1</td><td class="great">&lt;$1.00:$1</td></tr>
       </table>
       <div class="note">2025 median: $2.00 of sales &amp; marketing to acquire $1 of new ARR (up 14% YoY). Expanding existing customers costs about half as much.</div>
     </div>
@@ -355,7 +199,7 @@ footer {
     </div>
 
     <div class="card reveal">
-      <div class="card-head"><h3>Website / Landing Page Conversion</h3><span class="abbr">CVR</span></div>
+      <div class="card-head"><h3>Website / LP Conversion</h3><span class="abbr">CVR</span></div>
       <p class="desc">Out of everyone who visits a page, the share who take the action you want — book a demo or fill in a form.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Conversions</b> ÷ <span class="frac">Total Visitors</span>) × 100</span></div>
       <span class="benchmark-title">The Benchmark</span>
@@ -477,7 +321,6 @@ footer {
 
 <!-- ===================== SALES ===================== -->
 <section class="division" id="sales">
-
   <p class="section-label">Sales Division</p>
   <h2 class="section-heading">Conversion, Pipeline &amp; Retention</h2>
   <div class="section-divider"></div>
@@ -487,7 +330,7 @@ footer {
 
     <div class="card reveal">
       <div class="card-head"><h3>Win Rate</h3><span class="abbr">CR</span></div>
-      <p class="desc">Of the real deals your team works, the share you actually win. Segment matters — enterprise wins less but earns more per deal.</p>
+      <p class="desc">Of the real deals your team works, the share you actually win. Segment matters — enterprise wins less often but earns more per deal.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Closed-Won Deals</b> ÷ <span class="frac">Total Created Opportunities</span>) × 100</span></div>
       <span class="benchmark-title">The Benchmark</span>
       <table>
@@ -532,14 +375,14 @@ footer {
       <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&lt;2.5x</td><td class="good">3–4x</td><td class="great">coverage × win = quota</td></tr>
+        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&lt;2.5x</td><td class="good">3–4x</td><td class="great">cov × win = quota</td></tr>
       </table>
       <div class="note">3–4x is the rule of thumb, but the real test is simple: coverage × your win rate should equal quota.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>Pipeline Velocity</h3><span class="abbr">PV</span></div>
-      <p class="desc">How fast money moves through your pipeline — a single number combining deal count, deal size, win rate and speed.</p>
+      <p class="desc">How fast money moves through your pipeline — one number combining deal count, deal size, win rate and speed.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(Opportunities × Avg Deal Value × Win Rate) ÷ Sales Cycle Length</span></div>
       <span class="benchmark-title">The Benchmark</span>
       <table>
@@ -629,4 +472,108 @@ footer {
     </div>
 
     <div class="card reveal">
-      <div class="card-head"><h3>Net Rev
+      <div class="card-head"><h3>Net Revenue Retention</h3><span class="abbr">NRR</span></div>
+      <p class="desc">Whether your existing customers spend more or less over time, after upgrades and cancellations. Above 100% means they grow on their own.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">((Starting MRR + Expansion − Contraction − Churn) ÷ Starting MRR) × 100</span></div>
+      <span class="benchmark-title">The Benchmark</span>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;100%</td><td class="good">100–110%</td><td class="great">120%+</td></tr>
+        <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&lt;100%</td><td class="good">102–110%</td><td class="great">110%+</td></tr>
+      </table>
+      <div class="note">Market average ≈ 101%. Pairing NRR over 120% with low CAC nearly doubles a company's growth rate.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>MRR Churn (Net)</h3><span class="abbr">CHURN</span></div>
+      <p class="desc">The share of recurring revenue you lose each month to cancellations and downgrades. Lower is better — negative is the dream.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">((<b>Churned MRR − Expansion MRR</b>) ÷ <span class="frac">Starting MRR</span>) × 100</span></div>
+      <span class="benchmark-title">The Benchmark</span>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product (monthly)</span></td><td class="bad">&gt;2%</td><td class="good">&lt;1–2%</td><td class="great">&lt;0.5% / net-neg</td></tr>
+        <tr><td><span class="seg">Service (MSP net)</span></td><td class="bad">&gt;1%</td><td class="good">&lt;1%</td><td class="great">Net-negative</td></tr>
+      </table>
+      <div class="note">Gross MRR churn above 1–2% usually points to a product or ROI problem. Negative churn means upgrades outweigh losses.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>SLA Compliance</h3><span class="abbr">SLA</span></div>
+      <p class="desc">The share of your service promises — response times, uptime targets — that you actually meet.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>SLA Commitments Met</b> ÷ <span class="frac">Total SLA Commitments</span>) × 100</span></div>
+      <span class="benchmark-title">The Benchmark</span>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Service (IT/MSP)</span></td><td class="bad">&lt;95%</td><td class="good">97–98%</td><td class="great">99%+</td></tr>
+      </table>
+      <div class="note">A drop to 95% signals systemic problems. Breach penalties often run 10–25% credit on the monthly fee.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Avg Monthly Rev / Client</h3><span class="abbr">AMRC</span></div>
+      <p class="desc">The average amount each client pays you per month. Higher means you're selling richer, higher-value services.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Total MRR ÷ Number of Active Clients</span></span></div>
+      <span class="benchmark-title">The Benchmark</span>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Service (SMB)</span></td><td class="bad">&lt;$800</td><td class="good">$1,500–5,000</td><td class="great">$5,000+</td></tr>
+      </table>
+      <div class="note">Basic monitoring/helpdesk ≈ $800–1,200. Higher means you're selling security and cloud, not just break/fix.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Onboarding / Time-to-Value</h3><span class="abbr">TTV</span></div>
+      <p class="desc">How many days it takes to get a new client fully set up and seeing value. Faster onboarding reduces churn.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Avg ( Go-Live Date − Contract Signed Date )</span></span></div>
+      <span class="benchmark-title">The Benchmark</span>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&gt;14 days</td><td class="good">7–14 days</td><td class="great">&lt;7 days</td></tr>
+      </table>
+      <div class="note">If onboarding drags past 14 days, churn risk rises and your effective CAC inflates.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- IMPLEMENTATION -->
+<section id="implementation">
+  <p class="section-label">Build Notes</p>
+  <h2 class="section-heading">Where each KPI lives</h2>
+  <div class="section-divider"></div>
+  <ul class="impl-list reveal">
+    <li><strong>Marketing KPIs</strong> — pull conversion stages &amp; CPL from CRM lifecycle stages; blend ad spend in Looker Studio.</li>
+    <li><strong>Sales KPIs</strong> — all native to your CRM pipeline; time-stamped stages drive cycle length and velocity.</li>
+    <li><strong>Service KPIs</strong> — utilization, SLA &amp; gross margin come from your <strong>PSA tool</strong> (ConnectWise, Autotask, Kantata) and finance/ERP, not the CRM.</li>
+    <li>Use <strong>Looker Studio</strong> as the master layer: GA4 for top-of-funnel, ad platforms for spend, CRM for bottom-of-funnel, PSA for delivery.</li>
+  </ul>
+</section>
+
+<footer>
+  Benchmarks compiled from 2025–2026 B2B SaaS &amp; IT-services industry data. Always compare like-for-like — same segment, same MQL definition, same deal-size band.
+</footer>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const divisions = document.querySelectorAll('.division');
+  function activate(name){
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+    divisions.forEach(d => d.classList.toggle('active', d.id === name));
+    runReveal();
+  }
+  tabs.forEach(tab => tab.addEventListener('click', () => activate(tab.dataset.tab)));
+  document.querySelectorAll('[data-jump]').forEach(link =>
+    link.addEventListener('click', () => { activate(link.dataset.jump); window.scrollTo({top:0,behavior:'smooth'}); })
+  );
+  function runReveal(){
+    const els = document.querySelectorAll('.division.active .reveal, #implementation .reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    els.forEach(el => obs.observe(el));
+  }
+  runReveal();
+</script>
+
+</body>
+</html>
