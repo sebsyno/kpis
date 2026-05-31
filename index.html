@@ -7,7 +7,7 @@
 <meta name="description" content="A full-funnel KPI library for B2B IT — formulas and benchmarks split by Product (SaaS) vs Service (managed/professional IT)." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght=200;300;400;500&family=DM+Sans:wght=300;400;500&display=swap" rel="stylesheet" />
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -141,8 +141,9 @@ footer { padding: 2.5rem 3rem; border-top: 0.5px solid rgba(200,168,75,0.15); fo
 </header>
 
 <div class="tabs">
-  <button class="tab active" data-tab="marketing">📈 Marketing</button>
+  <button class="tab" data-tab="marketing">📈 Marketing</button>
   <button class="tab" data-tab="sales">💰 Sales</button>
+  <button class="tab active" data-tab="operational">⚙️ Operational</button>
 </div>
 
 <div class="legend">
@@ -152,8 +153,7 @@ footer { padding: 2.5rem 3rem; border-top: 0.5px solid rgba(200,168,75,0.15); fo
   <span style="color:var(--text-dim)">Benchmarks vary by segment, deal size &amp; MQL definition — compare like-for-like.</span>
 </div>
 
-<!-- ===================== MARKETING ===================== -->
-<section class="division active" id="marketing">
+<section class="division" id="marketing">
   <p class="section-label">Marketing Division</p>
   <h2 class="section-heading">Attraction &amp; Acquisition</h2>
   <div class="section-divider"></div>
@@ -319,7 +319,6 @@ footer { padding: 2.5rem 3rem; border-top: 0.5px solid rgba(200,168,75,0.15); fo
   </div>
 </section>
 
-<!-- ===================== SALES ===================== -->
 <section class="division" id="sales">
   <p class="section-label">Sales Division</p>
   <h2 class="section-heading">Conversion, Pipeline &amp; Retention</h2>
@@ -535,8 +534,8 @@ footer { padding: 2.5rem 3rem; border-top: 0.5px solid rgba(200,168,75,0.15); fo
 
   </div>
 </section>
-<!-- ===================== Operational ===================== -->
-<section class="division active" id="marketing">
+
+<section class="division" id="operational">
   <p class="section-label">Operational Division</p>
   <h2 class="section-heading">Optimization &amp; Quality Control</h2>
   <div class="section-divider"></div>
@@ -551,7 +550,7 @@ footer { padding: 2.5rem 3rem; border-top: 0.5px solid rgba(200,168,75,0.15); fo
       <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Conversion to Meeting</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&gt;<10%</td><td class="good">&lt;15-25%</td><td class="great">&lt;35%</td></tr>
+        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&lt;10%</td><td class="good">15–25%</td><td class="great">&gt;35%</td></tr>
       </table>
       <div class="note">The benchmark measures the conversion success rate of the system. It answers the question: Of all the leads that successfully hit your 100-point threshold and were passed to sales, what percentage of them did sales actually agree were a good fit and converted into a meeting (SQL)?</div>
       <div class="note">Rule of thumb: Deduct points for negative behavior (e.g., visiting career pages or long periods of inactivity). A lead should only trigger an MQL alert when behavioral triggers outbalance demographic static scores.</div>
@@ -560,19 +559,195 @@ footer { padding: 2.5rem 3rem; border-top: 0.5px solid rgba(200,168,75,0.15); fo
     <div class="card reveal">
       <div class="card-head"><h3>Longer Sales Cycle Penalty</h3><span class="abbr">SCL-P</span></div>
       <p class="desc">The calculation of how much longer a high-value Enterprise or complex IT deal takes to close compared to your standard sales cycle baseline, used to adjust pipeline forecasting.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Average Enterprise Sales Cycle Length (Days) - Average SMB/Mid-Market Sales Cycle Length (Days)</span></span></div>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Average Enterprise Sales Cycle Length (Days) − Average SMB/Mid-Market Sales Cycle Length (Days)</span></span></div>
       <span class="benchmark-title">The Benchmark</span>
       <table>
-        <tr><th>$ spent per $1 new ARR</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&gt;270 days (9+ months)}$</td><td class="good">&lt;120–180 days (4-6 months)</td><td class="great">&lt;Incredible: <120 days (<4 months)</td></tr>
+        <tr><th>Forecast Delay Range</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&gt;270 days</td><td class="good">120–180 days</td><td class="great">&lt;120 days</td></tr>
       </table>
       <div class="note">Rule of thumb: As Average Contract Value (ACV) grows, the sales cycle naturally elongates. Never let marketing celebrate an influx of Enterprise MQLs without immediately factoring in the pipeline velocity penalty—otherwise, cash flow will suffer while deals sit in legal and procurement.</div>
     </div>
 
+    <div class="card reveal" style="grid-column: 1 / -1; background: rgba(18, 36, 64, 0.15); padding: 2.25rem 2.5rem; border: 0.5px solid rgba(200,168,75,0.12);">
+      <div class="card-head" style="border-bottom: 0.5px solid rgba(200,168,75,0.2); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+        <h3>1. Lead Scoring Criteria Matrix</h3>
+        <span class="abbr" style="background: rgba(200,168,75,0.05)">System Controls</span>
+      </div>
+      <p class="desc">Defines precisely how structural fit profile fields and digital action intent triggers coordinate point weights dynamically across systems before hitting the threshold milestone.</p>
+      
+      <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+        <thead>
+          <tr>
+            <th style="width: 20%; padding: 0.55rem 0.75rem;">Category</th>
+            <th style="width: 35%; padding: 0.55rem 0.75rem;">Criteria / Action</th>
+            <th style="width: 15%; padding: 0.55rem 0.75rem; text-align: center;">Points Allocation</th>
+            <th style="width: 30%; padding: 0.55rem 0.75rem;">Strategic Rationale</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color: var(--gold-light); font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;">Explicit: Fit</td>
+            <td>Decision Maker (e.g., CIO, CTO, VP of IT)</td>
+            <td style="text-align: center; color: var(--good); font-family: var(--serif); font-weight: 500;">+35</td>
+            <td>Ideal persona; directly holds budget.</td>
+          </tr>
+          <tr>
+            <td style="color: var(--gold-light); font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;">Explicit: Fit</td>
+            <td>Influencer (e.g., IT Manager, SysAdmin)</td>
+            <td style="text-align: center; color: var(--good); font-family: var(--serif); font-weight: 500;">+15</td>
+            <td>Can champion the tool, but doesn't sign the check.</td>
+          </tr>
+          <tr>
+            <td style="color: var(--gold-light); font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;">Explicit: Fit</td>
+            <td>Target Industry (e.g., FinTech, Healthcare)</td>
+            <td style="text-align: center; color: var(--good); font-family: var(--serif); font-weight: 500;">+15</td>
+            <td>Matches your high-value verticals.</td>
+          </tr>
+          <tr>
+            <td style="color: var(--gold-light); font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;">Explicit: Fit</td>
+            <td>Ideal Company Size (&gt;100 employees or Tier 1)</td>
+            <td style="text-align: center; color: var(--good); font-family: var(--serif); font-weight: 500;">+10</td>
+            <td>Ensures they can afford your contract value.</td>
+          </tr>
+          <tr>
+            <td style="color: var(--good); font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;">Behavioral: High Intent</td>
+            <td>Requests a Product Demo / Contact Sales</td>
+            <td style="text-align: center; color: var(--good); font-family: var(--serif); font-weight: 500;">+100</td>
+            <td><em style="color: var(--great)">Fast-Track:</em> Bypasses scoring straight to sales.</td>
+          </tr>
+          <tr>
+            <td style="color: var(--good); font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;">Behavioral: High Intent</td>
+            <td>Visits the Pricing Page (&gt;2 times)</td>
+            <td style="text-align: center; color: var(--good); font-family: var(--serif); font-weight: 500;">+25</td>
+            <td>Late-stage funnel behavior; comparing costs.</td>
+          </tr>
+          <tr>
+            <td style="color: var(--good); font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;">Behavioral: High Intent</td>
+            <td>Attends a Live Webinar</td>
+            <td style="text-align: center; color: var(--good); font-family: var(--serif); font-weight: 500;">+20</td>
+            <td>High time investment; deep middle-funnel interest.</td>
+          </tr>
+          <tr>
+            <td style="color: var(--great); font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;">Behavioral: Mid Intent</td>
+            <td>Downloads a Technical Whitepaper / Case Study</td>
+            <td style="text-align: center; color: var(--good); font-family: var(--serif); font-weight: 500;">+15</td>
+            <td>Researching solutions to a specific pain point.</td>
+          </tr>
+          <tr>
+            <td style="color: var(--great); font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;">Behavioral: Mid Intent</td>
+            <td>Views 3+ Blog Posts in one session</td>
+            <td style="text-align: center; color: var(--good); font-family: var(--serif); font-weight: 500;">+10</td>
+            <td>High content consumption and discovery.</td>
+          </tr>
+          <tr>
+            <td style="color: var(--bad); font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;">Negative Score</td>
+            <td>Visits the "Careers / Jobs" Page</td>
+            <td style="text-align: center; color: var(--bad); font-family: var(--serif); font-weight: 500;">-30</td>
+            <td>Likely a job seeker, not a buyer.</td>
+          </tr>
+          <tr>
+            <td style="color: var(--bad); font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;">Negative Score</td>
+            <td>Uses a free email domain (Gmail, Yahoo)</td>
+            <td style="text-align: center; color: var(--bad); font-family: var(--serif); font-weight: 500;">-20</td>
+            <td>Signals a student, competitor, or low-intent lead.</td>
+          </tr>
+          <tr>
+            <td style="color: var(--bad); font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;">Negative Score</td>
+            <td>Inactivity / No engagement for 30 days</td>
+            <td style="text-align: center; color: var(--bad); font-family: var(--serif); font-weight: 500;">-15</td>
+            <td>Lead decay; cooling off period.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head">
+        <h3>2. Performance Benchmarks</h3>
+        <span class="abbr">MQL ➔ SQL</span>
+      </div>
+      <p class="desc">A validation framework mapping conversion success metrics across sales confirmation velocity thresholds.</p>
+      
+      <span class="benchmark-title">Conversion Target Rates</span>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 30%;">Status Band</th>
+            <th style="width: 25%;">Rate</th>
+            <th style="width: 45%;">Operational Diagnostic Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="bad">🔴 Bad / Floor</td>
+            <td class="bad">&lt;10%</td>
+            <td>Out of 100 threshold leads, fewer than 10 become opportunities. Scoring criteria are too easy. Sales wastes time chasing dead ends.</td>
+          </tr>
+          <tr>
+            <td class="good">🟢 Good / Healthy</td>
+            <td class="good">15%–25%</td>
+            <td>Balance between who they are (Explicit) and what they do (Behavioral) is well-calibrated. Keeps sales fed while filtering noise.</td>
+          </tr>
+          <tr>
+            <td class="great">🚀 Incredible</td>
+            <td class="great">&gt;35%</td>
+            <td>Highly restrictive and perfectly aligned with late-stage triggers (pricing views mixed with target executive fits).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head">
+        <h3>3. The 100-Point Scale Matrix</h3>
+        <span class="abbr">Funnel Track</span>
+      </div>
+      <p class="desc">Visual tracking roadmap mapping exact spectrum spaces of lead engagement as a user interacts over time.</p>
+      
+      <span class="benchmark-title">Lifecycle Alignment Spectrum</span>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 30%;">Scale Range</th>
+            <th style="width: 35%;">Funnel Track</th>
+            <th style="width: 35%;">Readiness State</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0 to 40 Points</td>
+            <td style="color: var(--text-muted)">Cold Research</td>
+            <td>Nurture track; matches demographics but low interaction history or an intern template download.</td>
+          </tr>
+          <tr>
+            <td>41 to 75 Points</td>
+            <td style="color: var(--great)">Mid-Funnel Interest</td>
+            <td>Marketing track; reading content and looking at emails, but has not given an inbound calling trigger yet.</td>
+          </tr>
+          <tr>
+            <td>76 to 99 Points</td>
+            <td style="color: var(--good)">High Engagement</td>
+            <td>Nearing threshold trigger space; displaying rapid interaction velocity patterns.</td>
+          </tr>
+          <tr style="background: rgba(200, 168, 75, 0.05);">
+            <td style="color: var(--gold-light); font-weight: 500;">100+ Points</td>
+            <td style="color: var(--gold-light); font-weight: 500;">MQL TRIGGERED</td>
+            <td>Handed to Sales; verified fit attributes perfectly match active high-intent triggers.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="note" style="margin-top: 2.5rem; background: rgba(200,168,75,0.03); padding: 1.5rem; border-radius: 0 4px 4px 0;">
+    <span class="benchmark-title" style="color: var(--gold); font-size: 0.7rem; font-weight: 500; margin-bottom: 0.2rem;">💡 Operational Summary Rule of Thumb</span>
+    <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.65;">
+      <strong>You never change the baseline 100-point target framework milestone goal itself.</strong> Instead, if conversion metrics collapse below the <span style="color: var(--bad); font-weight: 500;">&lt;10% floor</span>, you raise point pricing thresholds: decrease value credits on general actions or apply tighter negative deductions so only hyper-qualified accounts scale past 100.
+    </p>
   </div>
 </section>
 
-<!-- IMPLEMENTATION -->
 <section id="implementation">
   <p class="section-label">Build Notes</p>
   <h2 class="section-heading">Where each KPI lives</h2>
