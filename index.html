@@ -7,7 +7,7 @@
 <meta name="description" content="A full-funnel KPI library for B2B IT — formulas and benchmarks split by Product (SaaS) vs Service (managed/professional IT)." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght=200;300;400;500&family=DM+Sans:wght=300;400;500&display=swap" rel="stylesheet" />
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -99,6 +99,15 @@ td:first-child { color: var(--text-muted); }
 .impl-list li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
 .impl-list strong { color: var(--cream); font-weight: 500; }
 
+/* Custom integration helper tokens */
+.card-full-width { grid-column: 1 / -1; padding: 2.25rem 2.5rem; border: 0.5px solid rgba(200,168,75,0.12); background: rgba(18, 36, 64, 0.15); }
+.card-full-width h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; color: var(--white); margin-bottom: 0.5rem; }
+.card-sub-header { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 0.5rem; border-bottom: 0.5px solid rgba(200,168,75,0.2); padding-bottom: 0.5rem;}
+.sub-tag-fit { color: var(--gold-light); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+.sub-tag-high { color: var(--good); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+.sub-tag-mid { color: var(--great); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+.sub-tag-neg { color: var(--bad); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+
 footer { padding: 2.5rem 3rem; border-top: 0.5px solid rgba(200,168,75,0.15); font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.06em; text-align: left; line-height: 1.8; }
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
@@ -113,6 +122,7 @@ footer { padding: 2.5rem 3rem; border-top: 0.5px solid rgba(200,168,75,0.15); fo
   .tabs, .legend { padding-left: 1.5rem; padding-right: 1.5rem; }
   .card-grid { grid-template-columns: 1fr; }
   .card { padding: 2rem 1.5rem; }
+  .card-full-width { padding: 2rem 1.5rem; }
   footer { padding: 2rem 1.5rem; }
 }
 </style>
@@ -141,8 +151,9 @@ footer { padding: 2.5rem 3rem; border-top: 0.5px solid rgba(200,168,75,0.15); fo
 </header>
 
 <div class="tabs">
-  <button class="tab active" data-tab="marketing">📈 Marketing</button>
+  <button class="tab" data-tab="marketing">📈 Marketing</button>
   <button class="tab" data-tab="sales">💰 Sales</button>
+  <button class="tab active" data-tab="operational">⚙️ Operational</button>
 </div>
 
 <div class="legend">
@@ -152,8 +163,7 @@ footer { padding: 2.5rem 3rem; border-top: 0.5px solid rgba(200,168,75,0.15); fo
   <span style="color:var(--text-dim)">Benchmarks vary by segment, deal size &amp; MQL definition — compare like-for-like.</span>
 </div>
 
-<!-- ===================== MARKETING ===================== -->
-<section class="division active" id="marketing">
+<section class="division" id="marketing">
   <p class="section-label">Marketing Division</p>
   <h2 class="section-heading">Attraction &amp; Acquisition</h2>
   <div class="section-divider"></div>
@@ -200,7 +210,7 @@ footer { padding: 2.5rem 3rem; border-top: 0.5px solid rgba(200,168,75,0.15); fo
 
     <div class="card reveal">
       <div class="card-head"><h3>Website / LP Conversion</h3><span class="abbr">CVR</span></div>
-      <p class="desc">Out of everyone who visits a page, the share who take the action you want — book a demo or fill in a form.</p>
+      <p class="desc">Of the people who see your page, the share who take the action you want — book a demo or fill in a form.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Conversions</b> ÷ <span class="frac">Total Visitors</span>) × 100</span></div>
       <span class="benchmark-title">The Benchmark</span>
       <table>
@@ -211,115 +221,9 @@ footer { padding: 2.5rem 3rem; border-top: 0.5px solid rgba(200,168,75,0.15); fo
       <div class="note">Average B2B site converts ~1.8%. Professional services run higher (4–6%); complex SaaS often lower.</div>
     </div>
 
-    <div class="card reveal">
-      <div class="card-head"><h3>Return on Ad Spend</h3><span class="abbr">ROAS</span></div>
-      <p class="desc">For every $1 you put into ads, how many dollars of revenue come back.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Total Revenue from Ads ÷ Total Ad Spend</span></span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">B2B blended</span></td><td class="bad">&lt;2:1</td><td class="good">4:1</td><td class="great">8:1+</td></tr>
-      </table>
-      <div class="note">In long B2B sales cycles, ROAS lags — revenue often lands months after the click, so judge it over a quarter.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>CAC Payback Period</h3><span class="abbr">CAC PB</span></div>
-      <p class="desc">How many months of customer payments it takes to earn back what you spent to win them. Shorter is healthier for cash flow.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">CAC ÷ (Avg MRR per Customer × Gross Margin %)</span></span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&gt;18 mo</td><td class="good">8–12 mo</td><td class="great">&lt;8 mo</td></tr>
-        <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&gt;24 mo</td><td class="good">12 mo</td><td class="great">&lt;6 mo</td></tr>
-      </table>
-      <div class="note">SaaS median ≈ 8.6 months. Sensible targets: &lt;12mo SMB, &lt;18mo Mid-Market, &lt;24mo Enterprise.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>Email Engagement</h3><span class="abbr">EML</span></div>
-      <p class="desc">How many people click your emails (CTR) and how many then act (CVR). Ignore open rates — privacy tools have made them unreliable.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">CTR = (Clicks ÷ Emails Delivered) × 100<br>CVR = (Conversions ÷ Emails Delivered) × 100</span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Metric</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Marketing CTR</span></td><td class="bad">&lt;1%</td><td class="good">2–3.2%</td><td class="great">&gt;4%</td></tr>
-        <tr><td><span class="seg">Tech email CVR</span></td><td class="bad">&lt;1%</td><td class="good">2.5%</td><td class="great">&gt;4%</td></tr>
-      </table>
-      <div class="note">B2B marketing email CTR averages ~3.2%; cold outreach ~5.1%. Email still returns ~$36 per $1 spent.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>Click-Through Rate</h3><span class="abbr">CTR</span></div>
-      <p class="desc">Of the people who <em>saw</em> your ad or search listing, the share who actually clicked it. Shows how relevant the creative is.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Total Clicks</b> ÷ <span class="frac">Total Impressions</span>) × 100</span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Channel</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">LinkedIn Ads</span></td><td class="bad">&lt;0.4%</td><td class="good">0.5–1%</td><td class="great">10–20%*</td></tr>
-      </table>
-      <div class="note">*Thought-Leader Ads deliver 10–20× the engagement of standard 0.5–1% ad formats.</div>
-    </div>
-
-  </div>
-
-  <div class="cat-label">Marketing → Sales Bridge</div>
-  <div class="card-grid">
-
-    <div class="card reveal">
-      <div class="card-head"><h3>Lead → MQL</h3><span class="abbr">L2M</span></div>
-      <p class="desc">Of all the raw leads you collect, the share good enough to be called "marketing-qualified" — a genuine potential fit.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Total MQLs</b> ÷ <span class="frac">Total Raw Leads</span>) × 100</span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;25%</td><td class="good">31–39%</td><td class="great">45%+</td></tr>
-        <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&lt;17%</td><td class="good">25–31%</td><td class="great">40%+</td></tr>
-      </table>
-      <div class="note">B2B average ≈ 31%; SaaS ≈ 39%; leads from SEO convert best at ≈ 41%.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>MQL → SQL ★</h3><span class="abbr">M2S</span></div>
-      <p class="desc">Of your marketing-qualified leads, the share sales agrees are worth pursuing. This is the funnel's weakest point — fix it first.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Total SQLs</b> ÷ <span class="frac">Total MQLs</span>) × 100</span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;13%</td><td class="good">20–25%</td><td class="great">35–40%+</td></tr>
-        <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&lt;10%</td><td class="good">15–20%</td><td class="great">25–30%+</td></tr>
-      </table>
-      <div class="note">All-industry average is just 13% — 87% of MQLs never become SQLs. Behavioral lead scoring lifts this to 39–40%.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>Speed-to-Lead</h3><span class="abbr">STL</span></div>
-      <p class="desc">How fast sales makes first contact after a lead comes in. Minutes matter — speed dramatically lifts conversion.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Avg ( First Contact Time − Lead Creation Time )</span></span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&gt;24 hrs</td><td class="good">&lt;1 hr</td><td class="great">&lt;5 min</td></tr>
-      </table>
-      <div class="note">Following up within 1 hour = 53% conversion vs 17% after 24h. Within 5 minutes = 21× more likely to qualify.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>Marketing-Sourced Pipeline</h3><span class="abbr">MSP</span></div>
-      <p class="desc">The share of your sales pipeline that marketing created, versus deals sales found on their own. Shows marketing's real revenue impact.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Marketing-Sourced Pipeline $</b> ÷ <span class="frac">Total Pipeline $</span>) × 100</span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&lt;30%</td><td class="good">40–50%</td><td class="great">&gt;60%</td></tr>
-      </table>
-      <div class="note">A board-level metric. Below 30% means marketing isn't pulling its weight on pipeline.</div>
-    </div>
-
   </div>
 </section>
 
-<!-- ===================== SALES ===================== -->
 <section class="division" id="sales">
   <p class="section-label">Sales Division</p>
   <h2 class="section-heading">Conversion, Pipeline &amp; Retention</h2>
@@ -356,223 +260,221 @@ footer { padding: 2.5rem 3rem; border-top: 0.5px solid rgba(200,168,75,0.15); fo
       <div class="note">SaaS average ≈ 84 days. Deals under $25K ≈ 90 days; deals over $100K run 6–9+ months.</div>
     </div>
 
-    <div class="card reveal">
-      <div class="card-head"><h3>Average Contract Value</h3><span class="abbr">ACV</span></div>
-      <p class="desc">The average yearly value of a new deal — and, just as important, whether that value is growing over time.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">ACV = Total New-Deal Revenue ÷ Closed-Won Deals<br>Growth = ((Current − Prior) ÷ Prior) × 100</span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">ACV Growth</span></td><td class="bad">Declining</td><td class="good">+20% YoY</td><td class="great">+20%+ w/ margin held</td></tr>
-      </table>
-      <div class="note">Watch for one "whale" deal hiding a decline across the rest of the book. Always segment by rep and product.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>Pipeline Coverage</h3><span class="abbr">PCR</span></div>
-      <p class="desc">How many times bigger your open pipeline is than your sales target — your safety cushion for hitting quota.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Total Open Pipeline $ ÷ Quota Target $</span></span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&lt;2.5x</td><td class="good">3–4x</td><td class="great">cov × win = quota</td></tr>
-      </table>
-      <div class="note">3–4x is the rule of thumb, but the real test is simple: coverage × your win rate should equal quota.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>Pipeline Velocity</h3><span class="abbr">PV</span></div>
-      <p class="desc">How fast money moves through your pipeline — one number combining deal count, deal size, win rate and speed.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(Opportunities × Avg Deal Value × Win Rate) ÷ Sales Cycle Length</span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">Declining MoM</td><td class="good">+10% QoQ</td><td class="great">Sustained +10% QoQ</td></tr>
-      </table>
-      <div class="note">SaaS/Tech ≈ $1,847/day ($12.4K deals, 22% win, 67-day cycle). A drop over 10% month-on-month signals deal slippage.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>Quota Attainment</h3><span class="abbr">QA</span></div>
-      <p class="desc">The share of your sales reps who actually hit their target. A reliable early warning for morale and turnover.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Closed Revenue</b> ÷ <span class="frac">Quota</span>) × 100</span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Market avg.</span></td><td class="bad">&lt;30% of reps</td><td class="good">50–60% of reps</td><td class="great">70%+ of reps</td></tr>
-      </table>
-      <div class="note">Up to 70% of reps missed quota in 2024; market average ≈ 43%. If fewer than 30% hit, your targets may be unrealistic.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>Customer Lifetime Value</h3><span class="abbr">LTV</span></div>
-      <p class="desc">The total revenue you expect from one customer across their whole relationship with you.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">Avg Purchase Value × Avg # Purchases × Avg Lifespan<br><span style="color:var(--text-dim)">SaaS: ARR × Gross Margin ÷ Churn Rate</span></span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>SMB</th><th>Mid-Market</th><th>Enterprise</th></tr>
-        <tr><td><span class="seg">Product (SaaS)</span></td><td>$15K–40K</td><td>$80K–200K</td><td class="great">$300K–1M+</td></tr>
-      </table>
-      <div class="note">Don't over-trust projected LTV from thin history — apply a haircut until you have 12+ months of real data.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>LTV : CAC Ratio</h3><span class="abbr">LTV:CAC</span></div>
-      <p class="desc">How much a customer is worth compared to what you paid to get them. Higher means healthier economics.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Customer Lifetime Value ÷ Customer Acquisition Cost</span></span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;3:1</td><td class="good">3–4:1</td><td class="great">5:1+</td></tr>
-        <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&lt;3:1</td><td class="good">3:1</td><td class="great">4–5:1+</td></tr>
-      </table>
-      <div class="note">SaaS median ≈ 3.6:1. Below 3:1 you're overspending to grow; 4:1+ means you're ready to scale.</div>
-    </div>
-
-  </div>
-
-  <div class="cat-label">Service &amp; Retention — IT Delivery</div>
-  <div class="card-grid">
-
-    <div class="card reveal">
-      <div class="card-head"><h3>Billable Utilization</h3><span class="abbr">UTIL</span></div>
-      <p class="desc">The share of your engineers' paid hours that are billable to clients. The biggest profit driver in a services business.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Billable Hours</b> ÷ <span class="frac">Total Available Hours</span>) × 100</span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Consulting staff</span></td><td class="bad">&lt;65%</td><td class="good">75–85%</td><td class="great">85%+</td></tr>
-      </table>
-      <div class="note">Keep it above 75% weekly. Once non-billable admin time passes 15%, profit erodes fast.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>Gross Margin (Services)</h3><span class="abbr">GM%</span></div>
-      <p class="desc">After paying the direct cost of delivering the work, the share of revenue you keep.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">((<b>Revenue − COGS</b>) ÷ <span class="frac">Revenue</span>) × 100</span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Managed Services</span></td><td class="bad">&lt;40%</td><td class="good">40–50%</td><td class="great">50%+</td></tr>
-        <tr><td><span class="seg">Professional Svcs</span></td><td class="bad">&lt;50%</td><td class="good">60%</td><td class="great">85%+</td></tr>
-      </table>
-      <div class="note">The average MSP's net profit is ~8–10%; best-in-class reach 15–20%+.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>Recurring Revenue Mix</h3><span class="abbr">MRR%</span></div>
-      <p class="desc">The share of revenue that repeats every month (contracts) versus one-off project work. More repeat revenue = a more stable business.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Recurring Revenue</b> ÷ <span class="frac">Total Revenue</span>) × 100</span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Service (MSP)</span></td><td class="bad">&lt;50%</td><td class="good">~60%</td><td class="great">75%+</td></tr>
-      </table>
-      <div class="note">The average MSP earns ~60% from recurring services; top performers exceed 75%.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>Net Revenue Retention</h3><span class="abbr">NRR</span></div>
-      <p class="desc">Whether your existing customers spend more or less over time, after upgrades and cancellations. Above 100% means they grow on their own.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">((Starting MRR + Expansion − Contraction − Churn) ÷ Starting MRR) × 100</span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;100%</td><td class="good">100–110%</td><td class="great">120%+</td></tr>
-        <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&lt;100%</td><td class="good">102–110%</td><td class="great">110%+</td></tr>
-      </table>
-      <div class="note">Market average ≈ 101%. Pairing NRR over 120% with low CAC nearly doubles a company's growth rate.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>MRR Churn (Net)</h3><span class="abbr">CHURN</span></div>
-      <p class="desc">The share of recurring revenue you lose each month to cancellations and downgrades. Lower is better — negative is the dream.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">((<b>Churned MRR − Expansion MRR</b>) ÷ <span class="frac">Starting MRR</span>) × 100</span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Product (monthly)</span></td><td class="bad">&gt;2%</td><td class="good">&lt;1–2%</td><td class="great">&lt;0.5% / net-neg</td></tr>
-        <tr><td><span class="seg">Service (MSP net)</span></td><td class="bad">&gt;1%</td><td class="good">&lt;1%</td><td class="great">Net-negative</td></tr>
-      </table>
-      <div class="note">Gross MRR churn above 1–2% usually points to a product or ROI problem. Negative churn means upgrades outweigh losses.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>SLA Compliance</h3><span class="abbr">SLA</span></div>
-      <p class="desc">The share of your service promises — response times, uptime targets — that you actually meet.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>SLA Commitments Met</b> ÷ <span class="frac">Total SLA Commitments</span>) × 100</span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Service (IT/MSP)</span></td><td class="bad">&lt;95%</td><td class="good">97–98%</td><td class="great">99%+</td></tr>
-      </table>
-      <div class="note">A drop to 95% signals systemic problems. Breach penalties often run 10–25% credit on the monthly fee.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>Avg Monthly Rev / Client</h3><span class="abbr">AMRC</span></div>
-      <p class="desc">The average amount each client pays you per month. Higher means you're selling richer, higher-value services.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Total MRR ÷ Number of Active Clients</span></span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Service (SMB)</span></td><td class="bad">&lt;$800</td><td class="good">$1,500–5,000</td><td class="great">$5,000+</td></tr>
-      </table>
-      <div class="note">Basic monitoring/helpdesk ≈ $800–1,200. Higher means you're selling security and cloud, not just break/fix.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>Onboarding / Time-to-Value</h3><span class="abbr">TTV</span></div>
-      <p class="desc">How many days it takes to get a new client fully set up and seeing value. Faster onboarding reduces churn.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Avg ( Go-Live Date − Contract Signed Date )</span></span></div>
-      <span class="benchmark-title">The Benchmark</span>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&gt;14 days</td><td class="good">7–14 days</td><td class="great">&lt;7 days</td></tr>
-      </table>
-      <div class="note">If onboarding drags past 14 days, churn risk rises and your effective CAC inflates.</div>
-    </div>
-
   </div>
 </section>
-<!-- ===================== Operational ===================== -->
-<section class="division active" id="marketing">
+
+<section class="division active" id="operational">
   <p class="section-label">Operational Division</p>
   <h2 class="section-heading">Optimization &amp; Quality Control</h2>
   <div class="section-divider"></div>
 
-  <div class="cat-label">Operational &amp; Control</div>
+  <div class="cat-label">Operational Frameworks &amp; Controls</div>
   <div class="card-grid">
 
     <div class="card reveal">
       <div class="card-head"><h3>Behavioral Lead Scoring</h3><span class="abbr">BLS</span></div>
-      <p class="desc">A point-based system used to rank prospects based on their implicit digital actions (e.g., viewing pricing pages, downloading whitepapers, attending webinars). It filters out low-intent leads so sales only focuses on high-intent targets.</p>
+      <p class="desc">A point-based system used to rank prospects based on their implicit digital actions. It filters out low-intent leads so sales only focuses on high-intent targets.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Total Explicit Points + Total Implicit Points</span></span></div>
-      <span class="benchmark-title">The Benchmark</span>
+      <span class="benchmark-title">System Accuracy Target Success</span>
       <table>
-        <tr><th>Conversion to Meeting</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&gt;<10%</td><td class="good">&lt;15-25%</td><td class="great">&lt;35%</td></tr>
+        <tr><th>MQL to SQL Conversion</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&lt;10%</td><td class="good">15–25%</td><td class="great">&gt;35%</td></tr>
       </table>
-      <div class="note">The benchmark measures the conversion success rate of the system. It answers the question: Of all the leads that successfully hit your 100-point threshold and were passed to sales, what percentage of them did sales actually agree were a good fit and converted into a meeting (SQL)?</div>
-      <div class="note">Rule of thumb: Deduct points for negative behavior (e.g., visiting career pages or long periods of inactivity). A lead should only trigger an MQL alert when behavioral triggers outbalance demographic static scores.</div>
+      <div class="note">The benchmark measures the validation success rate of the system: out of the leads that successfully hit your 100-point threshold and were passed to sales, what percentage converted into a qualified meeting (SQL)?</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>Longer Sales Cycle Penalty</h3><span class="abbr">SCL-P</span></div>
       <p class="desc">The calculation of how much longer a high-value Enterprise or complex IT deal takes to close compared to your standard sales cycle baseline, used to adjust pipeline forecasting.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Average Enterprise Sales Cycle Length (Days) - Average SMB/Mid-Market Sales Cycle Length (Days)</span></span></div>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Avg Enterprise SCL (Days) − Avg SMB/Mid-Market SCL (Days)</span></span></div>
       <span class="benchmark-title">The Benchmark</span>
       <table>
-        <tr><th>$ spent per $1 new ARR</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&gt;270 days (9+ months)}$</td><td class="good">&lt;120–180 days (4-6 months)</td><td class="great">&lt;Incredible: <120 days (<4 months)</td></tr>
+        <tr><th>Forecast Delay Range</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&gt;270 days</td><td class="good">120–180 days</td><td class="great">&lt;120 days</td></tr>
       </table>
-      <div class="note">Rule of thumb: As Average Contract Value (ACV) grows, the sales cycle naturally elongates. Never let marketing celebrate an influx of Enterprise MQLs without immediately factoring in the pipeline velocity penalty—otherwise, cash flow will suffer while deals sit in legal and procurement.</div>
+      <div class="note">Rule of thumb: As Average Contract Value grows, the cycle elongates. Never let marketing celebrate an influx of Enterprise MQLs without factoring in pipeline velocity penalties — otherwise, cash flow will suffer.</div>
+    </div>
+
+    <div class="card-full-width reveal">
+      <div class="card-sub-header">
+        <h3>1. Lead Scoring Criteria Matrix</h3>
+        <span class="abbr" style="background: rgba(200,168,75,0.05)">System Controls</span>
+      </div>
+      <p class="desc" style="margin-bottom: 1.5rem;">Defines precisely how structural fit profile fields and digital action intent triggers coordinate point weights dynamically across systems.</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 25%;">Category</th>
+            <th style="width: 35%;">Criteria / Action</th>
+            <th style="width: 15%; text-align: center;">Points Allocation</th>
+            <th style="width: 25%;">Strategic Rationale</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="sub-tag-fit">Explicit: Fit</span></td>
+            <td>Decision Maker (e.g., CIO, CTO, VP of IT)</td>
+            <td style="text-align: center; color: var(--good); font-family: var(--serif); font-weight: 500;">+35</td>
+            <td>Ideal persona; directly holds budget.</td>
+          </tr>
+          <tr>
+            <td><span class="sub-tag-fit">Explicit: Fit</span></td>
+            <td>Influencer (e.g., IT Manager, SysAdmin)</td>
+            <td style="text-align: center; color: var(--good); font-family: var(--serif); font-weight: 500;">+15</td>
+            <td>Can champion the tool, but doesn't sign the check.</td>
+          </tr>
+          <tr>
+            <td><span class="sub-tag-fit">Explicit: Fit</span></td>
+            <td>Target Industry (e.g., FinTech, Healthcare)</td>
+            <td style="text-align: center; color: var(--good); font-family: var(--serif); font-weight: 500;">+15</td>
+            <td>Matches your high-value verticals.</td>
+          </tr>
+          <tr>
+            <td><span class="sub-tag-fit">Explicit: Fit</span></td>
+            <td>Ideal Company Size (&gt;100 employees or Tier 1)</td>
+            <td style="text-align: center; color: var(--good); font-family: var(--serif); font-weight: 500;">+10</td>
+            <td>Ensures they can afford your contract value.</td>
+          </tr>
+          <tr>
+            <td><span class="sub-tag-high">Behavioral: High Intent</span></td>
+            <td>Requests a Product Demo / Contact Sales</td>
+            <td style="text-align: center; color: var(--good); font-family: var(--serif); font-weight: 500;">+100</td>
+            <td><em style="color: var(--great)">Fast-Track:</em> Bypasses scoring straight to sales.</td>
+          </tr>
+          <tr>
+            <td><span class="sub-tag-high">Behavioral: High Intent</span></td>
+            <td>Visits the Pricing Page (&gt;2 times)</td>
+            <td style="text-align: center; color: var(--good); font-family: var(--serif); font-weight: 500;">+25</td>
+            <td>Late-stage funnel behavior; comparing costs.</td>
+          </tr>
+          <tr>
+            <td><span class="sub-tag-high">Behavioral: High Intent</span></td>
+            <td>Attends a Live Webinar</td>
+            <td style="text-align: center; color: var(--good); font-family: var(--serif); font-weight: 500;">+20</td>
+            <td>High time investment; deep middle-funnel interest.</td>
+          </tr>
+          <tr>
+            <td><span class="sub-tag-mid">Behavioral: Mid Intent</span></td>
+            <td>Downloads a Technical Whitepaper / Case Study</td>
+            <td style="text-align: center; color: var(--good); font-family: var(--serif); font-weight: 500;">+15</td>
+            <td>Researching solutions to a specific pain point.</td>
+          </tr>
+          <tr>
+            <td><span class="sub-tag-mid">Behavioral: Mid Intent</span></td>
+            <td>Views 3+ Blog Posts in one session</td>
+            <td style="text-align: center; color: var(--good); font-family: var(--serif); font-weight: 500;">+10</td>
+            <td>High content consumption and discovery.</td>
+          </tr>
+          <tr>
+            <td><span class="sub-tag-neg">Negative Score</span></td>
+            <td>Visits the "Careers / Jobs" Page</td>
+            <td style="text-align: center; color: var(--bad); font-family: var(--serif); font-weight: 500;">-30</td>
+            <td>Likely a job seeker, not a buyer.</td>
+          </tr>
+          <tr>
+            <td><span class="sub-tag-neg">Negative Score</span></td>
+            <td>Uses a free email domain (Gmail, Yahoo)</td>
+            <td style="text-align: center; color: var(--bad); font-family: var(--serif); font-weight: 500;">-20</td>
+            <td>Signals a student, competitor, or low-intent lead.</td>
+          </tr>
+          <tr>
+            <td><span class="sub-tag-neg">Negative Score</span></td>
+            <td>Inactivity / No engagement for 30 days</td>
+            <td style="text-align: center; color: var(--bad); font-family: var(--serif); font-weight: 500;">-15</td>
+            <td>Lead decay; cooling off period.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head">
+        <h3>2. Performance Benchmarks</h3>
+        <span class="abbr">MQL ➔ SQL</span>
+      </div>
+      <p class="desc">A standard tracking mechanism defining overall health alignment targets for systems and pipelines.</p>
+      
+      <span class="benchmark-title">Conversion Target Rates</span>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 30%;">Status</th>
+            <th style="width: 25%;">Conversion</th>
+            <th style="width: 45%;">Operational Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="bad">🔴 Bad / Floor</td>
+            <td class="bad">&lt;10%</td>
+            <td>Out of 100 threshold leads, fewer than 10 become real pipeline. Scoring parameters are too weak, handing out points like candy. Sales wastes hours chasing dead ends.</td>
+          </tr>
+          <tr>
+            <td class="good">🟢 Good / Healthy</td>
+            <td class="good">15%–25%</td>
+            <td>Balance between who they are (Explicit) and what they do (Behavioral) is well-calibrated. Consistently feeds sales while filtering noise.</td>
+          </tr>
+          <tr>
+            <td class="great">🚀 Incredible</td>
+            <td class="great">&gt;35%</td>
+            <td>Scoring is highly restrictive and deeply aligned with sales. Only prospects displaying late-stage signals pass the 100-point finish line.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head">
+        <h3>3. The 100-Point Scale Matrix</h3>
+        <span class="abbr">Readiness Spectrum</span>
+      </div>
+      <p class="desc">Tracks the chronological lifecycle stage of a contact as they engage with marketing channels over time.</p>
+      
+      <span class="benchmark-title">Lifecycle Alignment Tracks</span>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 30%;">Scale Spectrum</th>
+            <th style="width: 35%;">Funnel Status</th>
+            <th style="width: 35%;">State Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0 to 40 Points</td>
+            <td style="color: var(--text-muted);">Cold Research</td>
+            <td>Nurture track; matches baseline demographic data but has little to no active brand interaction history.</td>
+          </tr>
+          <tr>
+            <td>41 to 75 Points</td>
+            <td style="color: var(--great);">Mid-Funnel Interest</td>
+            <td>Marketing track; reading content and reviewing emails, but has not triggered a clear sales calling event yet.</td>
+          </tr>
+          <tr>
+            <td>76 to 99 Points</td>
+            <td style="color: var(--good);">High Engagement</td>
+            <td>Nearing threshold; displaying rapid engagement velocity and deep content discovery patterns.</td>
+          </tr>
+          <tr style="background: rgba(200, 168, 75, 0.05);">
+            <td style="color: var(--gold-light); font-weight: 500;">100+ Points</td>
+            <td style="color: var(--gold-light); font-weight: 500;">MQL TRIGGERED</td>
+            <td>Handed to Sales; verification mechanisms prove the lead has proper target parameters and intense buying signals.</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
   </div>
+
+  <div class="note" style="margin-top: 2.5rem; background: rgba(200,168,75,0.03); padding: 1.5rem; border-radius: 0 4px 4px 0;">
+    <span class="benchmark-title" style="color: var(--gold); font-size: 0.7rem; font-weight: 500; margin-bottom: 0.2rem;">💡 Summary Rule of Thumb</span>
+    <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.65;">
+      <strong>You never change the 100-point target goal.</strong> Instead, if your sales team complains that leads are bad (<span style="color: var(--bad); font-weight: 500;">&lt;10% benchmark</span>), you simply raise the price of the points — making activities worth fewer points or making negative deductions stricter so only the "uber deals" can hit 100.
+    </p>
+  </div>
 </section>
 
-<!-- IMPLEMENTATION -->
 <section id="implementation">
   <p class="section-label">Build Notes</p>
   <h2 class="section-heading">Where each KPI lives</h2>
