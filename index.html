@@ -535,6 +535,42 @@ footer { padding: 2.5rem 3rem; border-top: 0.5px solid rgba(200,168,75,0.15); fo
 
   </div>
 </section>
+<!-- ===================== Operational ===================== -->
+<section class="division active" id="marketing">
+  <p class="section-label">Operational Division</p>
+  <h2 class="section-heading">Optimization &amp; Quality Control</h2>
+  <div class="section-divider"></div>
+
+  <div class="cat-label">Operational &amp; Control</div>
+  <div class="card-grid">
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Behavioral Lead Scoring</h3><span class="abbr">BLS</span></div>
+      <p class="desc">A point-based system used to rank prospects based on their implicit digital actions (e.g., viewing pricing pages, downloading whitepapers, attending webinars). It filters out low-intent leads so sales only focuses on high-intent targets.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Total Explicit Points + Total Implicit Points</span></span></div>
+      <span class="benchmark-title">The Benchmark</span>
+      <table>
+        <tr><th>Conversion to Meeting</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&gt;<10%</td><td class="good">&lt;15-25%</td><td class="great">&lt;35%</td></tr>
+      </table>
+      <div class="note">The benchmark measures the conversion success rate of the system. It answers the question: Of all the leads that successfully hit your 100-point threshold and were passed to sales, what percentage of them did sales actually agree were a good fit and converted into a meeting (SQL)?</div>
+      <div class="note">Rule of thumb: Deduct points for negative behavior (e.g., visiting career pages or long periods of inactivity). A lead should only trigger an MQL alert when behavioral triggers outbalance demographic static scores.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Longer Sales Cycle Penalty</h3><span class="abbr">SCL-P</span></div>
+      <p class="desc">The calculation of how much longer a high-value Enterprise or complex IT deal takes to close compared to your standard sales cycle baseline, used to adjust pipeline forecasting.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Average Enterprise Sales Cycle Length (Days) - Average SMB/Mid-Market Sales Cycle Length (Days)</span></span></div>
+      <span class="benchmark-title">The Benchmark</span>
+      <table>
+        <tr><th>$ spent per $1 new ARR</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&gt;270 days (9+ months)}$</td><td class="good">&lt;120–180 days (4-6 months)</td><td class="great">&lt;Incredible: <120 days (<4 months)</td></tr>
+      </table>
+      <div class="note">Rule of thumb: As Average Contract Value (ACV) grows, the sales cycle naturally elongates. Never let marketing celebrate an influx of Enterprise MQLs without immediately factoring in the pipeline velocity penalty—otherwise, cash flow will suffer while deals sit in legal and procurement.</div>
+    </div>
+
+  </div>
+</section>
 
 <!-- IMPLEMENTATION -->
 <section id="implementation">
