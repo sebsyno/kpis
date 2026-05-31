@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>KPI Mastery Blueprint — B2B IT Benchmarks</title>
-<meta name="description" content="Full-funnel B2B IT KPI library — Marketing & Sales benchmarks split by Product (SaaS) vs Service (managed/professional IT), with formulas and bad / good / incredible ranges." />
+<meta name="description" content="A full-funnel KPI library for B2B IT — formulas and benchmarks split by Product (SaaS) vs Service (managed/professional IT)." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -209,6 +209,13 @@ section { padding: 6rem 3rem; }
 .formula .frm-body b { color: var(--gold-light); font-weight: 400; }
 .formula .frac { font-style: italic; }
 
+/* BENCHMARK SUBTITLE */
+.benchmark-title {
+  display: block;
+  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.6rem;
+}
+
 /* TABLE */
 table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
 th, td { padding: 0.55rem 0.75rem; text-align: left; border-bottom: 0.5px solid rgba(200,168,75,0.1); }
@@ -282,7 +289,7 @@ footer {
     <p class="hero-eyebrow">B2B IT · 2025–2026 Benchmarks</p>
     <h1 class="hero-name">KPI Mastery <em>Blueprint</em></h1>
     <div class="hero-divider"></div>
-    <p class="hero-intro">A full-funnel KPI library for B2B IT — every metric with its <strong>formula</strong>, split by <strong>Product (software / SaaS)</strong> versus <strong>Service (managed &amp; professional IT services)</strong>, with bad / good / incredible benchmarks.</p>
+    <p class="hero-intro">A full-funnel KPI library for B2B IT.</p>
   </div>
 </header>
 
@@ -312,87 +319,102 @@ footer {
 
     <div class="card reveal">
       <div class="card-head"><h3>Cost Per Acquisition</h3><span class="abbr">CPA</span></div>
-      <p class="desc">Total cost to acquire a single paying customer. <em>Source: CRM + Looker Studio.</em></p>
+      <p class="desc">How much you spend on marketing to win one paying customer. Lower is better. Because it depends entirely on deal size, it's best judged as a slice of the contract's value.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Total Marketing Spend ÷ Total Acquired Customers</span></span></div>
-      <div class="note">Read alongside CAC and LTV — a low CPA on customers who churn fast is a false win.</div>
+      <span class="benchmark-title">The Benchmark</span>
+      <table>
+        <tr><th>Measured as % of contract value</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&gt;50%</td><td class="good">&lt;33%</td><td class="great">&lt;20%</td></tr>
+      </table>
+      <div class="note">Rule of thumb: keep CPA below a third of a customer's first-year value. Read it next to CAC and LTV.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>Customer Acquisition Cost</h3><span class="abbr">CAC</span></div>
-      <p class="desc">All sales + marketing overhead (ad spend, salaries, software) to win a customer.</p>
+      <p class="desc">The full cost of winning a customer — ads <em>plus</em> salaries, software and overhead — not just media spend. The "true" version of CPA.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">(Total Sales + Marketing Expenses) ÷ Total New Customers Acquired</span></span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">New CAC Ratio</span></td><td class="bad">$2.82:$1</td><td class="good">$2.00:$1</td><td class="great">&lt;$1.00:$1</td></tr>
+        <tr><th>New CAC Ratio ($ spent per $1 new ARR)</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">$2.82 : $1</td><td class="good">$2.00 : $1</td><td class="great">&lt;$1.00 : $1</td></tr>
       </table>
-      <div class="note">2025 median: $2.00 of S&amp;M to acquire $1 of new ARR (up 14% YoY). Expansion CAC is ~half the cost.</div>
+      <div class="note">2025 median: $2.00 of sales &amp; marketing to acquire $1 of new ARR (up 14% YoY). Expanding existing customers costs about half as much.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>Cost Per Lead</h3><span class="abbr">CPL</span></div>
-      <p class="desc">Spend to generate a single raw lead — one layer above CPA/CAC.</p>
+      <p class="desc">How much you pay to get one new lead — a contact who showed interest — before they ever buy anything.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Total Campaign Spend ÷ Total Leads Generated</span></span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product</span></td><td class="bad">&gt;$300</td><td class="good">$150–250</td><td class="great">&lt;$100</td></tr>
         <tr><td><span class="seg">Service</span></td><td class="bad">&gt;$400</td><td class="good">$200–350</td><td class="great">&lt;$150</td></tr>
       </table>
-      <div class="note">B2B average ≈ $200; demo-request CPL can hit $600–800. LinkedIn highest, SEO/email lowest.</div>
+      <div class="note">B2B average ≈ $200; a demo request can cost $600–800. LinkedIn is the priciest channel, SEO and email the cheapest.</div>
     </div>
 
     <div class="card reveal">
-      <div class="card-head"><h3>Website / LP Conversion</h3><span class="abbr">CVR</span></div>
-      <p class="desc">% of visitors converting to a lead/demo (not bounce rate).</p>
+      <div class="card-head"><h3>Website / Landing Page Conversion</h3><span class="abbr">CVR</span></div>
+      <p class="desc">Out of everyone who visits a page, the share who take the action you want — book a demo or fill in a form.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Conversions</b> ÷ <span class="frac">Total Visitors</span>) × 100</span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;1.8%</td><td class="good">3–5%</td><td class="great">&gt;7–10%</td></tr>
         <tr><td><span class="seg">Service (Pro Svcs)</span></td><td class="bad">&lt;2%</td><td class="good">4–6%</td><td class="great">&gt;7%</td></tr>
       </table>
+      <div class="note">Average B2B site converts ~1.8%. Professional services run higher (4–6%); complex SaaS often lower.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>Return on Ad Spend</h3><span class="abbr">ROAS</span></div>
-      <p class="desc">Gross revenue generated per $1 of advertising. <em>Source: GA4 / Looker Studio.</em></p>
+      <p class="desc">For every $1 you put into ads, how many dollars of revenue come back.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Total Revenue from Ads ÷ Total Ad Spend</span></span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">B2B blended</span></td><td class="bad">&lt;2:1</td><td class="good">4:1</td><td class="great">8:1+</td></tr>
       </table>
+      <div class="note">In long B2B sales cycles, ROAS lags — revenue often lands months after the click, so judge it over a quarter.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>CAC Payback Period</h3><span class="abbr">CAC PB</span></div>
-      <p class="desc">Months to recover acquisition cost — often more important than raw CAC.</p>
+      <p class="desc">How many months of customer payments it takes to earn back what you spent to win them. Shorter is healthier for cash flow.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">CAC ÷ (Avg MRR per Customer × Gross Margin %)</span></span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&gt;18 mo</td><td class="good">8–12 mo</td><td class="great">&lt;8 mo</td></tr>
         <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&gt;24 mo</td><td class="good">12 mo</td><td class="great">&lt;6 mo</td></tr>
       </table>
-      <div class="note">SaaS median ≈ 8.6 months. Targets: &lt;12mo SMB, &lt;18mo Mid-Market, &lt;24mo Enterprise.</div>
+      <div class="note">SaaS median ≈ 8.6 months. Sensible targets: &lt;12mo SMB, &lt;18mo Mid-Market, &lt;24mo Enterprise.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>Email Engagement</h3><span class="abbr">EML</span></div>
-      <p class="desc">Clicks &amp; conversions — treat open rates as directional only (privacy inflation).</p>
+      <p class="desc">How many people click your emails (CTR) and how many then act (CVR). Ignore open rates — privacy tools have made them unreliable.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">CTR = (Clicks ÷ Emails Delivered) × 100<br>CVR = (Conversions ÷ Emails Delivered) × 100</span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Metric</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Marketing CTR</span></td><td class="bad">&lt;1%</td><td class="good">2–3.2%</td><td class="great">&gt;4%</td></tr>
         <tr><td><span class="seg">Tech email CVR</span></td><td class="bad">&lt;1%</td><td class="good">2.5%</td><td class="great">&gt;4%</td></tr>
       </table>
+      <div class="note">B2B marketing email CTR averages ~3.2%; cold outreach ~5.1%. Email still returns ~$36 per $1 spent.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>Click-Through Rate</h3><span class="abbr">CTR</span></div>
-      <p class="desc">% who saw an ad/result and clicked. Measures creative &amp; relevance.</p>
+      <p class="desc">Of the people who <em>saw</em> your ad or search listing, the share who actually clicked it. Shows how relevant the creative is.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Total Clicks</b> ÷ <span class="frac">Total Impressions</span>) × 100</span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Channel</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">LinkedIn Ads</span></td><td class="bad">&lt;0.4%</td><td class="good">0.5–1%</td><td class="great">10–20%*</td></tr>
       </table>
-      <div class="note">*Thought-Leader Ads deliver 10–20× typical engagement vs standard 0.5–1% formats.</div>
+      <div class="note">*Thought-Leader Ads deliver 10–20× the engagement of standard 0.5–1% ad formats.</div>
     </div>
 
   </div>
@@ -402,47 +424,52 @@ footer {
 
     <div class="card reveal">
       <div class="card-head"><h3>Lead → MQL</h3><span class="abbr">L2M</span></div>
-      <p class="desc">Quality of raw lead flow becoming marketing-qualified.</p>
+      <p class="desc">Of all the raw leads you collect, the share good enough to be called "marketing-qualified" — a genuine potential fit.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Total MQLs</b> ÷ <span class="frac">Total Raw Leads</span>) × 100</span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;25%</td><td class="good">31–39%</td><td class="great">45%+</td></tr>
         <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&lt;17%</td><td class="good">25–31%</td><td class="great">40%+</td></tr>
       </table>
-      <div class="note">B2B average ≈ 31%; SaaS ≈ 39%; SEO-sourced leads ≈ 41%.</div>
+      <div class="note">B2B average ≈ 31%; SaaS ≈ 39%; leads from SEO convert best at ≈ 41%.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>MQL → SQL ★</h3><span class="abbr">M2S</span></div>
-      <p class="desc">The biggest single drop in the funnel — the #1 handoff metric.</p>
+      <p class="desc">Of your marketing-qualified leads, the share sales agrees are worth pursuing. This is the funnel's weakest point — fix it first.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Total SQLs</b> ÷ <span class="frac">Total MQLs</span>) × 100</span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;13%</td><td class="good">20–25%</td><td class="great">35–40%+</td></tr>
         <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&lt;10%</td><td class="good">15–20%</td><td class="great">25–30%+</td></tr>
       </table>
-      <div class="note">All-industry average just 13% — 87% of MQLs never become SQLs. Behavioral scoring lifts to 39–40%.</div>
+      <div class="note">All-industry average is just 13% — 87% of MQLs never become SQLs. Behavioral lead scoring lifts this to 39–40%.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>Speed-to-Lead</h3><span class="abbr">STL</span></div>
-      <p class="desc">Time from lead conversion to first sales contact — a leading conversion indicator.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Avg ( First Contact Timestamp − Lead Creation Timestamp )</span></span></div>
+      <p class="desc">How fast sales makes first contact after a lead comes in. Minutes matter — speed dramatically lifts conversion.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Avg ( First Contact Time − Lead Creation Time )</span></span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&gt;24 hrs</td><td class="good">&lt;1 hr</td><td class="great">&lt;5 min</td></tr>
       </table>
-      <div class="note">1-hour follow-up = 53% conversion vs 17% after 24h. Within 5 min = 21× more likely to qualify.</div>
+      <div class="note">Following up within 1 hour = 53% conversion vs 17% after 24h. Within 5 minutes = 21× more likely to qualify.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>Marketing-Sourced Pipeline</h3><span class="abbr">MSP</span></div>
-      <p class="desc">Share of revenue pipeline marketing originated — board-level alignment metric.</p>
+      <p class="desc">The share of your sales pipeline that marketing created, versus deals sales found on their own. Shows marketing's real revenue impact.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Marketing-Sourced Pipeline $</b> ÷ <span class="frac">Total Pipeline $</span>) × 100</span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&lt;30%</td><td class="good">40–50%</td><td class="great">&gt;60%</td></tr>
       </table>
+      <div class="note">A board-level metric. Below 30% means marketing isn't pulling its weight on pipeline.</div>
     </div>
 
   </div>
@@ -460,93 +487,103 @@ footer {
 
     <div class="card reveal">
       <div class="card-head"><h3>Win Rate</h3><span class="abbr">CR</span></div>
-      <p class="desc">% of qualified opportunities closed-won. Segment matters hugely.</p>
+      <p class="desc">Of the real deals your team works, the share you actually win. Segment matters — enterprise wins less but earns more per deal.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Closed-Won Deals</b> ÷ <span class="frac">Total Created Opportunities</span>) × 100</span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product — SMB</span></td><td class="bad">&lt;20%</td><td class="good">25–32%</td><td class="great">35–40%+</td></tr>
         <tr><td><span class="seg">Product — Enterprise</span></td><td class="bad">&lt;12%</td><td class="good">15–20%</td><td class="great">25%+</td></tr>
         <tr><td><span class="seg">Service (Pro Svcs)</span></td><td class="bad">&lt;18%</td><td class="good">22–28%</td><td class="great">30%+</td></tr>
       </table>
-      <div class="note">Average B2B win rate ≈ 21%. A 15% enterprise rate can beat 35% SMB on revenue due to deal size.</div>
+      <div class="note">Average B2B win rate ≈ 21%. A 15% enterprise rate can out-earn a 35% SMB rate thanks to bigger deals.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>Sales Cycle Length</h3><span class="abbr">SCL</span></div>
-      <p class="desc">Avg days from first sales contact / SQL to closed-won.</p>
+      <p class="desc">The average number of days from first sales contact to a signed deal. Bigger deals naturally take longer.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Σ (Close Date − Creation Date) ÷ Total Closed Deals</span></span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">SMB (&lt;$5K)</span></td><td class="bad">&gt;90 d</td><td class="good">30–60 d</td><td class="great">&lt;30 d</td></tr>
         <tr><td><span class="seg">Mid-market</span></td><td class="bad">&gt;120 d</td><td class="good">60–90 d</td><td class="great">&lt;60 d</td></tr>
         <tr><td><span class="seg">Enterprise (&gt;$100K)</span></td><td class="bad">&gt;9 mo</td><td class="good">6 mo</td><td class="great">&lt;4 mo</td></tr>
       </table>
-      <div class="note">SaaS average ≈ 84 days. Deals &lt;$25K ≈ 90 days; deals &gt;$100K run 6–9+ months.</div>
+      <div class="note">SaaS average ≈ 84 days. Deals under $25K ≈ 90 days; deals over $100K run 6–9+ months.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>Average Contract Value</h3><span class="abbr">ACV</span></div>
-      <p class="desc">Average revenue per closed-won deal — plus track its YoY growth.</p>
+      <p class="desc">The average yearly value of a new deal — and, just as important, whether that value is growing over time.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">ACV = Total New-Deal Revenue ÷ Closed-Won Deals<br>Growth = ((Current − Prior) ÷ Prior) × 100</span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">ACV Growth</span></td><td class="bad">Declining</td><td class="good">+20% YoY</td><td class="great">+20%+ w/ margin</td></tr>
+        <tr><td><span class="seg">ACV Growth</span></td><td class="bad">Declining</td><td class="good">+20% YoY</td><td class="great">+20%+ w/ margin held</td></tr>
       </table>
-      <div class="note">Watch for one "whale" deal masking a decline across the rest of the book. Segment by rep / product.</div>
+      <div class="note">Watch for one "whale" deal hiding a decline across the rest of the book. Always segment by rep and product.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>Pipeline Coverage</h3><span class="abbr">PCR</span></div>
-      <p class="desc">Pipeline value vs quota target.</p>
+      <p class="desc">How many times bigger your open pipeline is than your sales target — your safety cushion for hitting quota.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Total Open Pipeline $ ÷ Quota Target $</span></span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&lt;2.5x</td><td class="good">3–4x</td><td class="great">cov × win = quota</td></tr>
+        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&lt;2.5x</td><td class="good">3–4x</td><td class="great">coverage × win = quota</td></tr>
       </table>
+      <div class="note">3–4x is the rule of thumb, but the real test is simple: coverage × your win rate should equal quota.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>Pipeline Velocity</h3><span class="abbr">PV</span></div>
-      <p class="desc">North-star metric synthesizing volume, value, win rate &amp; speed.</p>
+      <p class="desc">How fast money moves through your pipeline — a single number combining deal count, deal size, win rate and speed.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(Opportunities × Avg Deal Value × Win Rate) ÷ Sales Cycle Length</span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">Declining MoM</td><td class="good">+10% QoQ</td><td class="great">Sustained +10% QoQ</td></tr>
       </table>
-      <div class="note">SaaS/Tech ≈ $1,847/day ($12.4K deals, 22% win, 67-day cycle). Drop &gt;10% MoM → inspect slippage.</div>
+      <div class="note">SaaS/Tech ≈ $1,847/day ($12.4K deals, 22% win, 67-day cycle). A drop over 10% month-on-month signals deal slippage.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>Quota Attainment</h3><span class="abbr">QA</span></div>
-      <p class="desc">% of reps hitting target — leading indicator of morale &amp; turnover risk.</p>
+      <p class="desc">The share of your sales reps who actually hit their target. A reliable early warning for morale and turnover.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Closed Revenue</b> ÷ <span class="frac">Quota</span>) × 100</span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Market avg.</span></td><td class="bad">&lt;30% reps</td><td class="good">50–60% reps</td><td class="great">70%+ reps</td></tr>
+        <tr><td><span class="seg">Market avg.</span></td><td class="bad">&lt;30% of reps</td><td class="good">50–60% of reps</td><td class="great">70%+ of reps</td></tr>
       </table>
-      <div class="note">Up to 70% of reps missed quota in 2024; market average ≈ 43%. If &lt;30% hit, re-check targets.</div>
+      <div class="note">Up to 70% of reps missed quota in 2024; market average ≈ 43%. If fewer than 30% hit, your targets may be unrealistic.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>Customer Lifetime Value</h3><span class="abbr">LTV</span></div>
-      <p class="desc">Total expected revenue from a customer over their lifespan.</p>
+      <p class="desc">The total revenue you expect from one customer across their whole relationship with you.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">Avg Purchase Value × Avg # Purchases × Avg Lifespan<br><span style="color:var(--text-dim)">SaaS: ARR × Gross Margin ÷ Churn Rate</span></span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>SMB</th><th>Mid-Market</th><th>Enterprise</th></tr>
         <tr><td><span class="seg">Product (SaaS)</span></td><td>$15K–40K</td><td>$80K–200K</td><td class="great">$300K–1M+</td></tr>
       </table>
+      <div class="note">Don't over-trust projected LTV from thin history — apply a haircut until you have 12+ months of real data.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>LTV : CAC Ratio</h3><span class="abbr">LTV:CAC</span></div>
-      <p class="desc">Return on acquisition investment — clearest unit-economics signal.</p>
+      <p class="desc">How much a customer is worth compared to what you paid to get them. Higher means healthier economics.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Customer Lifetime Value ÷ Customer Acquisition Cost</span></span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;3:1</td><td class="good">3–4:1</td><td class="great">5:1+</td></tr>
         <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&lt;3:1</td><td class="good">3:1</td><td class="great">4–5:1+</td></tr>
       </table>
-      <div class="note">SaaS median ≈ 3.6:1. Minimum 3:1 for sustainable growth; 4:1+ = scale-ready.</div>
+      <div class="note">SaaS median ≈ 3.6:1. Below 3:1 you're overspending to grow; 4:1+ means you're ready to scale.</div>
     </div>
 
   </div>
@@ -556,139 +593,40 @@ footer {
 
     <div class="card reveal">
       <div class="card-head"><h3>Billable Utilization</h3><span class="abbr">UTIL</span></div>
-      <p class="desc">% of engineer/consultant time that is billable — #1 services profit lever. <em>Source: PSA.</em></p>
+      <p class="desc">The share of your engineers' paid hours that are billable to clients. The biggest profit driver in a services business.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Billable Hours</b> ÷ <span class="frac">Total Available Hours</span>) × 100</span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Consulting staff</span></td><td class="bad">&lt;65%</td><td class="good">75–85%</td><td class="great">85%+</td></tr>
       </table>
-      <div class="note">Keep above 75% weekly; if non-billable admin creeps above 15%, profitability erodes fast.</div>
+      <div class="note">Keep it above 75% weekly. Once non-billable admin time passes 15%, profit erodes fast.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>Gross Margin (Services)</h3><span class="abbr">GM%</span></div>
-      <p class="desc">Profitability of delivery after direct (COGS) costs.</p>
+      <p class="desc">After paying the direct cost of delivering the work, the share of revenue you keep.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">((<b>Revenue − COGS</b>) ÷ <span class="frac">Revenue</span>) × 100</span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Managed Services</span></td><td class="bad">&lt;40%</td><td class="good">40–50%</td><td class="great">50%+</td></tr>
         <tr><td><span class="seg">Professional Svcs</span></td><td class="bad">&lt;50%</td><td class="good">60%</td><td class="great">85%+</td></tr>
       </table>
-      <div class="note">Average MSP net margin ≈ 8–10%; best-in-class hit 15–20%+.</div>
+      <div class="note">The average MSP's net profit is ~8–10%; best-in-class reach 15–20%+.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>Recurring Revenue Mix</h3><span class="abbr">MRR%</span></div>
-      <p class="desc">Share of revenue that is recurring vs one-off — predictability of the business.</p>
+      <p class="desc">The share of revenue that repeats every month (contracts) versus one-off project work. More repeat revenue = a more stable business.</p>
       <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Recurring Revenue</b> ÷ <span class="frac">Total Revenue</span>) × 100</span></div>
+      <span class="benchmark-title">The Benchmark</span>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Service (MSP)</span></td><td class="bad">&lt;50%</td><td class="good">~60%</td><td class="great">75%+</td></tr>
       </table>
-      <div class="note">Average MSP ≈ 60% recurring; avg MRR per SMB client $1,500–5,000.</div>
+      <div class="note">The average MSP earns ~60% from recurring services; top performers exceed 75%.</div>
     </div>
 
     <div class="card reveal">
-      <div class="card-head"><h3>Net Revenue Retention</h3><span class="abbr">NRR</span></div>
-      <p class="desc">Revenue retained + expanded from existing customers — engine of efficient growth.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">((Starting MRR + Expansion − Contraction − Churn) ÷ Starting MRR) × 100</span></div>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;100%</td><td class="good">100–110%</td><td class="great">120%+</td></tr>
-        <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&lt;100%</td><td class="good">102–110%</td><td class="great">110%+</td></tr>
-      </table>
-      <div class="note">Market NRR ≈ 101%. Pairing NRR &gt;120% with low CAC nearly doubles growth rate.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>MRR Churn (Net)</h3><span class="abbr">CHURN</span></div>
-      <p class="desc">Revenue lost to cancellations &amp; downgrades.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">((<b>Churned MRR − Expansion MRR</b>) ÷ <span class="frac">Starting MRR</span>) × 100</span></div>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Product (monthly)</span></td><td class="bad">&gt;2%</td><td class="good">&lt;1–2%</td><td class="great">&lt;0.5% / net-neg</td></tr>
-        <tr><td><span class="seg">Service (MSP net)</span></td><td class="bad">&gt;1%</td><td class="good">&lt;1%</td><td class="great">Net-negative</td></tr>
-      </table>
-      <div class="note">Gross MRR churn above 1–2% signals a product/ROI problem. Ideal end state = negative churn.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>SLA Compliance</h3><span class="abbr">SLA</span></div>
-      <p class="desc">% of service-level commitments met — tied to retention &amp; contract penalties.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>SLA Commitments Met</b> ÷ <span class="frac">Total SLA Commitments</span>) × 100</span></div>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Service (IT/MSP)</span></td><td class="bad">&lt;95%</td><td class="good">97–98%</td><td class="great">99%+</td></tr>
-      </table>
-      <div class="note">A drop to 95% signals systemic issues. Breach penalties often run 10–25% credit on the monthly fee.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>Avg Monthly Rev / Client</h3><span class="abbr">AMRC</span></div>
-      <p class="desc">Revenue quality per account — signals upsell success &amp; service-mix richness.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Total MRR ÷ Number of Active Clients</span></span></div>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Service (SMB)</span></td><td class="bad">&lt;$800</td><td class="good">$1,500–5,000</td><td class="great">$5,000+</td></tr>
-      </table>
-      <div class="note">Baseline monitoring/helpdesk ≈ $800–1,200. Higher = selling security &amp; cloud, not break/fix.</div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-head"><h3>Onboarding / Time-to-Value</h3><span class="abbr">TTV</span></div>
-      <p class="desc">Days to get a new client live and seeing value — a leading churn predictor.</p>
-      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Avg ( Go-Live Date − Contract Signed Date )</span></span></div>
-      <table>
-        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-        <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&gt;14 days</td><td class="good">7–14 days</td><td class="great">&lt;7 days</td></tr>
-      </table>
-      <div class="note">If onboarding takes 14+ days, churn risk rises and effective CAC inflates.</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- IMPLEMENTATION -->
-<section id="implementation">
-  <p class="section-label">Build Notes</p>
-  <h2 class="section-heading">Where each KPI lives</h2>
-  <div class="section-divider"></div>
-  <ul class="impl-list reveal">
-    <li><strong>Marketing KPIs</strong> — pull conversion stages &amp; CPL from CRM lifecycle stages; blend ad spend in Looker Studio.</li>
-    <li><strong>Sales KPIs</strong> — all native to your CRM pipeline; time-stamped stages drive cycle length and velocity.</li>
-    <li><strong>Service KPIs</strong> — utilization, SLA &amp; gross margin come from your <strong>PSA tool</strong> (ConnectWise, Autotask, Kantata) and finance/ERP, not the CRM.</li>
-    <li>Use <strong>Looker Studio</strong> as the master layer: GA4 for top-of-funnel, ad platforms for spend, CRM for bottom-of-funnel, PSA for delivery.</li>
-  </ul>
-</section>
-
-<footer>
-  Benchmarks compiled from 2025–2026 B2B SaaS &amp; IT-services industry data. Always compare like-for-like — same segment, same MQL definition, same deal-size band.
-</footer>
-
-<script>
-  // Tab switching
-  const tabs = document.querySelectorAll('.tab');
-  const divisions = document.querySelectorAll('.division');
-  function activate(name){
-    tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === name));
-    divisions.forEach(d => d.classList.toggle('active', d.id === name));
-    runReveal();
-  }
-  tabs.forEach(tab => tab.addEventListener('click', () => activate(tab.dataset.tab)));
-  document.querySelectorAll('[data-jump]').forEach(link =>
-    link.addEventListener('click', () => { activate(link.dataset.jump); window.scrollTo({top:0,behavior:'smooth'}); })
-  );
-
-  // Reveal on scroll
-  function runReveal(){
-    const els = document.querySelectorAll('.division.active .reveal, #implementation .reveal');
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    els.forEach(el => obs.observe(el));
-  }
-  runReveal();
-</script>
-
-</body>
-</html>
+      <div class="card-head"><h3>Net Rev
