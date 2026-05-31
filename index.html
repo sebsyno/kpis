@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>KPI Mastery Blueprint — B2B IT Benchmarks</title>
-<meta name="description" content="Full-funnel B2B IT KPI library — Marketing & Sales benchmarks split by Product (SaaS) vs Service (managed/professional IT). Bad / good / incredible ranges from 2025–2026 data." />
+<meta name="description" content="Full-funnel B2B IT KPI library — Marketing & Sales benchmarks split by Product (SaaS) vs Service (managed/professional IT), with formulas and bad / good / incredible ranges." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -186,8 +186,28 @@ section { padding: 6rem 3rem; }
   color: var(--gold); border: 0.5px solid rgba(200,168,75,0.3);
   padding: 0.2rem 0.6rem; white-space: nowrap; flex-shrink: 0;
 }
-.desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.5rem; }
+.desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.25rem; }
 .desc em { color: var(--text-dim); font-style: italic; }
+
+/* FORMULA */
+.formula {
+  background: rgba(200,168,75,0.05);
+  border: 0.5px solid rgba(200,168,75,0.2);
+  border-left: 2px solid var(--gold);
+  padding: 0.8rem 1rem;
+  margin-bottom: 1.5rem;
+}
+.formula .frm-label {
+  display: block;
+  font-size: 0.56rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.45rem;
+}
+.formula .frm-body {
+  font-family: var(--serif); font-weight: 300;
+  font-size: 0.92rem; color: var(--cream); line-height: 1.55;
+}
+.formula .frm-body b { color: var(--gold-light); font-weight: 400; }
+.formula .frac { font-style: italic; }
 
 /* TABLE */
 table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
@@ -262,7 +282,7 @@ footer {
     <p class="hero-eyebrow">B2B IT · 2025–2026 Benchmarks</p>
     <h1 class="hero-name">KPI Mastery <em>Blueprint</em></h1>
     <div class="hero-divider"></div>
-    <p class="hero-intro">A full-funnel KPI library for B2B IT — split by <strong>Product (software / SaaS)</strong> versus <strong>Service (managed &amp; professional IT services)</strong>, with bad / good / incredible benchmarks for every metric.</p>
+    <p class="hero-intro">A full-funnel KPI library for B2B IT — every metric with its <strong>formula</strong>, split by <strong>Product (software / SaaS)</strong> versus <strong>Service (managed &amp; professional IT services)</strong>, with bad / good / incredible benchmarks.</p>
   </div>
 </header>
 
@@ -293,12 +313,14 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Cost Per Acquisition</h3><span class="abbr">CPA</span></div>
       <p class="desc">Total cost to acquire a single paying customer. <em>Source: CRM + Looker Studio.</em></p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Total Marketing Spend ÷ Total Acquired Customers</span></span></div>
       <div class="note">Read alongside CAC and LTV — a low CPA on customers who churn fast is a false win.</div>
     </div>
 
     <div class="card reveal">
       <div class="card-head"><h3>Customer Acquisition Cost</h3><span class="abbr">CAC</span></div>
       <p class="desc">All sales + marketing overhead (ad spend, salaries, software) to win a customer.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">(Total Sales + Marketing Expenses) ÷ Total New Customers Acquired</span></span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">New CAC Ratio</span></td><td class="bad">$2.82:$1</td><td class="good">$2.00:$1</td><td class="great">&lt;$1.00:$1</td></tr>
@@ -309,6 +331,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Cost Per Lead</h3><span class="abbr">CPL</span></div>
       <p class="desc">Spend to generate a single raw lead — one layer above CPA/CAC.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Total Campaign Spend ÷ Total Leads Generated</span></span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product</span></td><td class="bad">&gt;$300</td><td class="good">$150–250</td><td class="great">&lt;$100</td></tr>
@@ -320,6 +343,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Website / LP Conversion</h3><span class="abbr">CVR</span></div>
       <p class="desc">% of visitors converting to a lead/demo (not bounce rate).</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Conversions</b> ÷ <span class="frac">Total Visitors</span>) × 100</span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;1.8%</td><td class="good">3–5%</td><td class="great">&gt;7–10%</td></tr>
@@ -330,6 +354,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Return on Ad Spend</h3><span class="abbr">ROAS</span></div>
       <p class="desc">Gross revenue generated per $1 of advertising. <em>Source: GA4 / Looker Studio.</em></p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Total Revenue from Ads ÷ Total Ad Spend</span></span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">B2B blended</span></td><td class="bad">&lt;2:1</td><td class="good">4:1</td><td class="great">8:1+</td></tr>
@@ -339,6 +364,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>CAC Payback Period</h3><span class="abbr">CAC PB</span></div>
       <p class="desc">Months to recover acquisition cost — often more important than raw CAC.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">CAC ÷ (Avg MRR per Customer × Gross Margin %)</span></span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&gt;18 mo</td><td class="good">8–12 mo</td><td class="great">&lt;8 mo</td></tr>
@@ -350,6 +376,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Email Engagement</h3><span class="abbr">EML</span></div>
       <p class="desc">Clicks &amp; conversions — treat open rates as directional only (privacy inflation).</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">CTR = (Clicks ÷ Emails Delivered) × 100<br>CVR = (Conversions ÷ Emails Delivered) × 100</span></div>
       <table>
         <tr><th>Metric</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Marketing CTR</span></td><td class="bad">&lt;1%</td><td class="good">2–3.2%</td><td class="great">&gt;4%</td></tr>
@@ -360,6 +387,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Click-Through Rate</h3><span class="abbr">CTR</span></div>
       <p class="desc">% who saw an ad/result and clicked. Measures creative &amp; relevance.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Total Clicks</b> ÷ <span class="frac">Total Impressions</span>) × 100</span></div>
       <table>
         <tr><th>Channel</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">LinkedIn Ads</span></td><td class="bad">&lt;0.4%</td><td class="good">0.5–1%</td><td class="great">10–20%*</td></tr>
@@ -375,6 +403,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Lead → MQL</h3><span class="abbr">L2M</span></div>
       <p class="desc">Quality of raw lead flow becoming marketing-qualified.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Total MQLs</b> ÷ <span class="frac">Total Raw Leads</span>) × 100</span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;25%</td><td class="good">31–39%</td><td class="great">45%+</td></tr>
@@ -386,6 +415,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>MQL → SQL ★</h3><span class="abbr">M2S</span></div>
       <p class="desc">The biggest single drop in the funnel — the #1 handoff metric.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Total SQLs</b> ÷ <span class="frac">Total MQLs</span>) × 100</span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;13%</td><td class="good">20–25%</td><td class="great">35–40%+</td></tr>
@@ -397,6 +427,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Speed-to-Lead</h3><span class="abbr">STL</span></div>
       <p class="desc">Time from lead conversion to first sales contact — a leading conversion indicator.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Avg ( First Contact Timestamp − Lead Creation Timestamp )</span></span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&gt;24 hrs</td><td class="good">&lt;1 hr</td><td class="great">&lt;5 min</td></tr>
@@ -407,6 +438,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Marketing-Sourced Pipeline</h3><span class="abbr">MSP</span></div>
       <p class="desc">Share of revenue pipeline marketing originated — board-level alignment metric.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Marketing-Sourced Pipeline $</b> ÷ <span class="frac">Total Pipeline $</span>) × 100</span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&lt;30%</td><td class="good">40–50%</td><td class="great">&gt;60%</td></tr>
@@ -429,6 +461,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Win Rate</h3><span class="abbr">CR</span></div>
       <p class="desc">% of qualified opportunities closed-won. Segment matters hugely.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Closed-Won Deals</b> ÷ <span class="frac">Total Created Opportunities</span>) × 100</span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product — SMB</span></td><td class="bad">&lt;20%</td><td class="good">25–32%</td><td class="great">35–40%+</td></tr>
@@ -441,6 +474,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Sales Cycle Length</h3><span class="abbr">SCL</span></div>
       <p class="desc">Avg days from first sales contact / SQL to closed-won.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Σ (Close Date − Creation Date) ÷ Total Closed Deals</span></span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">SMB (&lt;$5K)</span></td><td class="bad">&gt;90 d</td><td class="good">30–60 d</td><td class="great">&lt;30 d</td></tr>
@@ -453,6 +487,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Average Contract Value</h3><span class="abbr">ACV</span></div>
       <p class="desc">Average revenue per closed-won deal — plus track its YoY growth.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">ACV = Total New-Deal Revenue ÷ Closed-Won Deals<br>Growth = ((Current − Prior) ÷ Prior) × 100</span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">ACV Growth</span></td><td class="bad">Declining</td><td class="good">+20% YoY</td><td class="great">+20%+ w/ margin</td></tr>
@@ -463,6 +498,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Pipeline Coverage</h3><span class="abbr">PCR</span></div>
       <p class="desc">Pipeline value vs quota target.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Total Open Pipeline $ ÷ Quota Target $</span></span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&lt;2.5x</td><td class="good">3–4x</td><td class="great">cov × win = quota</td></tr>
@@ -471,7 +507,8 @@ footer {
 
     <div class="card reveal">
       <div class="card-head"><h3>Pipeline Velocity</h3><span class="abbr">PV</span></div>
-      <p class="desc">North-star: (Opps × Deal Value × Win Rate) ÷ Sales Cycle Length.</p>
+      <p class="desc">North-star metric synthesizing volume, value, win rate &amp; speed.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(Opportunities × Avg Deal Value × Win Rate) ÷ Sales Cycle Length</span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">Declining MoM</td><td class="good">+10% QoQ</td><td class="great">Sustained +10% QoQ</td></tr>
@@ -482,6 +519,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Quota Attainment</h3><span class="abbr">QA</span></div>
       <p class="desc">% of reps hitting target — leading indicator of morale &amp; turnover risk.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Closed Revenue</b> ÷ <span class="frac">Quota</span>) × 100</span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Market avg.</span></td><td class="bad">&lt;30% reps</td><td class="good">50–60% reps</td><td class="great">70%+ reps</td></tr>
@@ -492,6 +530,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Customer Lifetime Value</h3><span class="abbr">LTV</span></div>
       <p class="desc">Total expected revenue from a customer over their lifespan.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">Avg Purchase Value × Avg # Purchases × Avg Lifespan<br><span style="color:var(--text-dim)">SaaS: ARR × Gross Margin ÷ Churn Rate</span></span></div>
       <table>
         <tr><th>Segment</th><th>SMB</th><th>Mid-Market</th><th>Enterprise</th></tr>
         <tr><td><span class="seg">Product (SaaS)</span></td><td>$15K–40K</td><td>$80K–200K</td><td class="great">$300K–1M+</td></tr>
@@ -501,6 +540,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>LTV : CAC Ratio</h3><span class="abbr">LTV:CAC</span></div>
       <p class="desc">Return on acquisition investment — clearest unit-economics signal.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Customer Lifetime Value ÷ Customer Acquisition Cost</span></span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;3:1</td><td class="good">3–4:1</td><td class="great">5:1+</td></tr>
@@ -517,6 +557,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Billable Utilization</h3><span class="abbr">UTIL</span></div>
       <p class="desc">% of engineer/consultant time that is billable — #1 services profit lever. <em>Source: PSA.</em></p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Billable Hours</b> ÷ <span class="frac">Total Available Hours</span>) × 100</span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Consulting staff</span></td><td class="bad">&lt;65%</td><td class="good">75–85%</td><td class="great">85%+</td></tr>
@@ -527,6 +568,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Gross Margin (Services)</h3><span class="abbr">GM%</span></div>
       <p class="desc">Profitability of delivery after direct (COGS) costs.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">((<b>Revenue − COGS</b>) ÷ <span class="frac">Revenue</span>) × 100</span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Managed Services</span></td><td class="bad">&lt;40%</td><td class="good">40–50%</td><td class="great">50%+</td></tr>
@@ -538,6 +580,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Recurring Revenue Mix</h3><span class="abbr">MRR%</span></div>
       <p class="desc">Share of revenue that is recurring vs one-off — predictability of the business.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>Recurring Revenue</b> ÷ <span class="frac">Total Revenue</span>) × 100</span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Service (MSP)</span></td><td class="bad">&lt;50%</td><td class="good">~60%</td><td class="great">75%+</td></tr>
@@ -548,6 +591,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Net Revenue Retention</h3><span class="abbr">NRR</span></div>
       <p class="desc">Revenue retained + expanded from existing customers — engine of efficient growth.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">((Starting MRR + Expansion − Contraction − Churn) ÷ Starting MRR) × 100</span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;100%</td><td class="good">100–110%</td><td class="great">120%+</td></tr>
@@ -559,6 +603,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>MRR Churn (Net)</h3><span class="abbr">CHURN</span></div>
       <p class="desc">Revenue lost to cancellations &amp; downgrades.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">((<b>Churned MRR − Expansion MRR</b>) ÷ <span class="frac">Starting MRR</span>) × 100</span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Product (monthly)</span></td><td class="bad">&gt;2%</td><td class="good">&lt;1–2%</td><td class="great">&lt;0.5% / net-neg</td></tr>
@@ -570,6 +615,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>SLA Compliance</h3><span class="abbr">SLA</span></div>
       <p class="desc">% of service-level commitments met — tied to retention &amp; contract penalties.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body">(<b>SLA Commitments Met</b> ÷ <span class="frac">Total SLA Commitments</span>) × 100</span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Service (IT/MSP)</span></td><td class="bad">&lt;95%</td><td class="good">97–98%</td><td class="great">99%+</td></tr>
@@ -580,6 +626,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Avg Monthly Rev / Client</h3><span class="abbr">AMRC</span></div>
       <p class="desc">Revenue quality per account — signals upsell success &amp; service-mix richness.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Total MRR ÷ Number of Active Clients</span></span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Service (SMB)</span></td><td class="bad">&lt;$800</td><td class="good">$1,500–5,000</td><td class="great">$5,000+</td></tr>
@@ -590,6 +637,7 @@ footer {
     <div class="card reveal">
       <div class="card-head"><h3>Onboarding / Time-to-Value</h3><span class="abbr">TTV</span></div>
       <p class="desc">Days to get a new client live and seeing value — a leading churn predictor.</p>
+      <div class="formula"><span class="frm-label">Formula</span><span class="frm-body"><span class="frac">Avg ( Go-Live Date − Contract Signed Date )</span></span></div>
       <table>
         <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
         <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&gt;14 days</td><td class="good">7–14 days</td><td class="great">&lt;7 days</td></tr>
