@@ -1,456 +1,645 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>B2B IT KPI Mastery Blueprint</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>KPI Mastery Blueprint — B2B IT Benchmarks</title>
+<meta name="description" content="Full-funnel B2B IT KPI library — Marketing & Sales benchmarks split by Product (SaaS) vs Service (managed/professional IT). Bad / good / incredible ranges from 2025–2026 data." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
-  :root{
-    --bg:#0f1419; --panel:#171f2a; --panel2:#1e2836; --line:#2a3645;
-    --txt:#e6edf3; --muted:#8b9bb0; --accent:#4f9cf9;
-    --mkt:#a855f7; --sales:#22c55e; --svc:#f59e0b;
-    --bad:#ef4444; --good:#22c55e; --great:#06b6d4;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.5;padding:0 0 60px}
-  header{background:linear-gradient(135deg,#1a2433,#0f1419);padding:38px 24px;border-bottom:1px solid var(--line);text-align:center}
-  header h1{font-size:2rem;margin-bottom:8px}
-  header p{color:var(--muted);max-width:760px;margin:0 auto;font-size:.95rem}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  .tabs{display:flex;gap:10px;justify-content:center;margin:28px 0 10px;flex-wrap:wrap}
-  .tab{padding:12px 30px;border:1px solid var(--line);background:var(--panel);color:var(--muted);
-    border-radius:10px;cursor:pointer;font-size:1rem;font-weight:600;transition:.2s}
-  .tab:hover{color:var(--txt)}
-  .tab.active[data-tab="marketing"]{background:var(--mkt);color:#fff;border-color:var(--mkt)}
-  .tab.active[data-tab="sales"]{background:var(--sales);color:#06210f;border-color:var(--sales)}
+:root {
+  --navy: #0b1929;
+  --navy-mid: #122440;
+  --navy-light: #1e3a5f;
+  --gold: #c8a84b;
+  --gold-light: #e8c96a;
+  --cream: #f5f0e8;
+  --white: #ffffff;
+  --text-muted: rgba(245,240,232,0.55);
+  --text-dim: rgba(245,240,232,0.35);
+  --bad: #d98a7a;
+  --good: #8fc9a0;
+  --great: #e8c96a;
+  --serif: 'Outfit', sans-serif;
+  --sans: 'DM Sans', sans-serif;
+}
 
-  .division{display:none;animation:fade .3s ease}
-  .division.active{display:block}
-  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+html { scroll-behavior: smooth; }
 
-  .cat{margin:30px 0 14px;font-size:1.15rem;font-weight:700;display:flex;align-items:center;gap:10px}
-  .cat .dot{width:11px;height:11px;border-radius:50%}
-  .dot.mkt{background:var(--mkt)} .dot.sales{background:var(--sales)} .dot.svc{background:var(--svc)}
+body {
+  background: var(--navy);
+  color: var(--cream);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
 
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-bottom:18px;overflow:hidden}
-  .card-head{padding:16px 20px;display:flex;justify-content:space-between;align-items:flex-start;gap:14px;
-    background:var(--panel2);border-bottom:1px solid var(--line);flex-wrap:wrap}
-  .card-head h3{font-size:1.05rem}
-  .abbr{font-size:.72rem;background:#0f1722;color:var(--accent);padding:3px 9px;border-radius:20px;
-    border:1px solid var(--line);font-weight:700;letter-spacing:.5px;white-space:nowrap}
-  .card-body{padding:16px 20px}
-  .desc{color:var(--muted);font-size:.9rem;margin-bottom:14px}
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.25rem 3rem;
+  background: rgba(11,25,41,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid rgba(200,168,75,0.25);
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.15rem; font-weight: 500;
+  letter-spacing: 0.02em; color: var(--cream); text-decoration: none;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-muted); text-decoration: none; transition: color 0.2s;
+  background: none; border: none; cursor: pointer; font-family: var(--sans);
+}
+.nav-links a:hover { color: var(--gold); }
 
-  table{width:100%;border-collapse:collapse;font-size:.86rem}
-  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line)}
-  th{color:var(--muted);font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.5px}
-  td:first-child{font-weight:600}
-  .seg{color:var(--accent);font-size:.78rem;font-weight:700}
-  .bad{color:var(--bad);font-weight:600}
-  .good{color:var(--good);font-weight:600}
-  .great{color:var(--great);font-weight:600}
-  .legend{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin:6px 0 4px;font-size:.8rem;color:var(--muted)}
-  .legend span{display:flex;align-items:center;gap:6px}
-  .pill{width:10px;height:10px;border-radius:3px;display:inline-block}
-  .note{font-size:.83rem;color:var(--muted);background:#0f1722;border-left:3px solid var(--accent);
-    padding:10px 14px;border-radius:6px;margin-top:6px}
-  footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:40px;padding:0 20px}
+/* HERO */
+.hero {
+  min-height: 70vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 3rem 4rem; position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(30,58,95,0.5) 0%, transparent 70%),
+    linear-gradient(175deg, #0b1929 0%, #0f2236 50%, #0b1929 100%);
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(200,168,75,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,168,75,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-accent {
+  position: absolute; top: 0; right: 10%;
+  width: 1px; height: 40vh;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  opacity: 0.6;
+}
+.hero-content { position: relative; max-width: 820px; padding-top: 90px; }
+.hero-eyebrow {
+  font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.5rem;
+  opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+}
+.hero-name {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  font-weight: 300; line-height: 1.05; letter-spacing: 0.01em;
+  color: var(--white); margin-bottom: 0.75rem;
+  opacity: 0; animation: fadeUp 0.8s 0.35s forwards;
+}
+.hero-name em { font-style: italic; color: var(--gold); font-weight: 200; }
+.hero-divider {
+  width: 60px; height: 1px; background: var(--gold); margin: 1.5rem 0 2rem;
+  opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
+}
+.hero-intro {
+  font-size: 1.05rem; font-weight: 300; color: var(--text-muted);
+  max-width: 620px; line-height: 1.85;
+  opacity: 0; animation: fadeUp 0.8s 0.75s forwards;
+}
+
+/* SECTIONS */
+section { padding: 6rem 3rem; }
+.section-label {
+  font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1rem;
+}
+.section-heading {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 500; color: var(--white); line-height: 1.15; margin-bottom: 1.25rem;
+}
+.section-divider { width: 40px; height: 1px; background: var(--gold); margin-bottom: 2.5rem; }
+
+/* TABS */
+.tabs {
+  position: sticky; top: 72px; z-index: 50;
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  padding: 1.5rem 3rem;
+  background: rgba(11,25,41,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid rgba(200,168,75,0.2);
+}
+.tab {
+  padding: 0.7rem 2rem; font-size: 0.78rem; letter-spacing: 0.12em;
+  text-transform: uppercase; cursor: pointer; font-family: var(--sans);
+  background: transparent; color: var(--text-muted);
+  border: 0.5px solid rgba(245,240,232,0.25); transition: all 0.25s;
+}
+.tab:hover { border-color: var(--gold); color: var(--gold); }
+.tab.active { background: var(--gold); color: var(--navy); font-weight: 500; border-color: var(--gold); }
+
+/* LEGEND */
+.legend {
+  display: flex; gap: 2rem; flex-wrap: wrap;
+  padding: 1.25rem 3rem; font-size: 0.72rem; letter-spacing: 0.06em;
+  color: var(--text-muted); border-bottom: 0.5px solid rgba(200,168,75,0.12);
+}
+.legend span { display: flex; align-items: center; gap: 0.5rem; }
+.pill { width: 9px; height: 9px; display: inline-block; }
+.pill.bad { background: var(--bad); } .pill.good { background: var(--good); } .pill.great { background: var(--great); }
+
+/* DIVISION */
+.division { display: none; }
+.division.active { display: block; }
+
+/* CATEGORY */
+.cat-label {
+  font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin: 3.5rem 0 1.5rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.cat-label::after { content: ''; flex: 1; height: 0.5px; background: rgba(200,168,75,0.2); }
+.cat-label:first-child { margin-top: 0; }
+
+/* CARD GRID */
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.card {
+  padding: 2.25rem 2.5rem;
+  border: 0.5px solid rgba(200,168,75,0.12);
+  position: relative; transition: background 0.3s;
+}
+.card:hover { background: rgba(30,58,95,0.4); }
+.card::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 3px; height: 0; background: var(--gold); transition: height 0.4s;
+}
+.card:hover::before { height: 100%; }
+.card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 0.4rem; }
+.card-head h3 {
+  font-family: var(--serif); font-size: 1.3rem; font-weight: 500; color: var(--white);
+}
+.abbr {
+  font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold); border: 0.5px solid rgba(200,168,75,0.3);
+  padding: 0.2rem 0.6rem; white-space: nowrap; flex-shrink: 0;
+}
+.desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.5rem; }
+.desc em { color: var(--text-dim); font-style: italic; }
+
+/* TABLE */
+table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+th, td { padding: 0.55rem 0.75rem; text-align: left; border-bottom: 0.5px solid rgba(200,168,75,0.1); }
+th {
+  font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--text-dim); font-weight: 400;
+}
+td { color: var(--cream); }
+td:first-child { color: var(--text-muted); }
+.seg { color: var(--gold); font-size: 0.75rem; letter-spacing: 0.04em; }
+.bad { color: var(--bad); } .good { color: var(--good); } .great { color: var(--great); }
+
+/* NOTE */
+.note {
+  font-size: 0.8rem; color: var(--text-muted); line-height: 1.7;
+  margin-top: 1.25rem; padding-left: 1rem;
+  border-left: 2px solid rgba(200,168,75,0.3);
+}
+
+/* IMPLEMENTATION */
+#implementation { background: var(--navy-mid); }
+.impl-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; max-width: 820px; }
+.impl-list li {
+  font-size: 0.92rem; color: var(--text-muted); padding-left: 1.5rem; position: relative; line-height: 1.8;
+}
+.impl-list li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+.impl-list strong { color: var(--cream); font-weight: 500; }
+
+/* FOOTER */
+footer {
+  padding: 2.5rem 3rem; border-top: 0.5px solid rgba(200,168,75,0.15);
+  font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.06em;
+  text-align: center; line-height: 1.8;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s, transform 0.7s; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  section { padding: 4rem 1.5rem; }
+  .hero { padding: 0 1.5rem 3rem; }
+  .tabs, .legend { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .card { padding: 2rem 1.5rem; }
+  footer { padding: 2rem 1.5rem; }
+}
 </style>
 </head>
 <body>
 
-<header>
-  <h1>📊 B2B IT KPI Mastery Blueprint</h1>
-  <p>Full-funnel KPI library for B2B IT — split by <strong>Product (software / SaaS)</strong> vs <strong>Service (managed / professional IT services)</strong>, with bad / good / incredible benchmarks (2025–2026 data).</p>
+<nav>
+  <a href="#top" class="nav-logo">KPI Blueprint</a>
+  <ul class="nav-links">
+    <li><a data-jump="marketing">Marketing</a></li>
+    <li><a data-jump="sales">Sales</a></li>
+    <li><a href="#implementation">Implementation</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">B2B IT · 2025–2026 Benchmarks</p>
+    <h1 class="hero-name">KPI Mastery <em>Blueprint</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-intro">A full-funnel KPI library for B2B IT — split by <strong>Product (software / SaaS)</strong> versus <strong>Service (managed &amp; professional IT services)</strong>, with bad / good / incredible benchmarks for every metric.</p>
+  </div>
 </header>
 
-<div class="wrap">
-  <div class="legend">
-    <span><i class="pill" style="background:var(--bad)"></i> Bad / Floor</span>
-    <span><i class="pill" style="background:var(--good)"></i> Good / Healthy</span>
-    <span><i class="pill" style="background:var(--great)"></i> Incredible / Top-tier</span>
-  </div>
-
-  <div class="tabs">
-    <button class="tab active" data-tab="marketing">📈 Marketing Division</button>
-    <button class="tab" data-tab="sales">💰 Sales Division</button>
-  </div>
-
-  <!-- ================= MARKETING ================= -->
-  <section class="division active" id="marketing">
-
-    <div class="cat"><span class="dot mkt"></span>Attraction &amp; Acquisition</div>
-
-    <div class="card">
-      <div class="card-head"><h3>Cost Per Acquisition</h3><span class="abbr">CPA</span></div>
-      <div class="card-body">
-        <p class="desc">Total cost to acquire a single paying customer. Measures financial efficiency of campaigns. <em>Source: CRM + Looker Studio.</em></p>
-        <div class="note">Read alongside CAC and LTV — a low CPA on customers who churn fast is a false win.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>Customer Acquisition Cost</h3><span class="abbr">CAC</span></div>
-      <div class="card-body">
-        <p class="desc">All sales + marketing overhead (ad spend, salaries, software) to win a customer over a period.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">New CAC Ratio</span></td><td class="bad">$2.82 : $1</td><td class="good">$2.00 : $1</td><td class="great">&lt;$1.00 : $1 (expansion)</td></tr>
-        </table>
-        <div class="note">2025 median: $2.00 of S&amp;M to acquire $1 of new ARR (up 14% YoY). Expansion CAC is ~half the cost of new.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>Cost Per Lead</h3><span class="abbr">CPL</span></div>
-      <div class="card-body">
-        <p class="desc">Spend to generate a single raw lead — one layer above CPA/CAC.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Product</span></td><td class="bad">&gt; $300</td><td class="good">$150–$250</td><td class="great">&lt; $100</td></tr>
-          <tr><td><span class="seg">Service</span></td><td class="bad">&gt; $400</td><td class="good">$200–$350</td><td class="great">&lt; $150</td></tr>
-        </table>
-        <div class="note">B2B average CPL ≈ $200; demo-request CPL can hit $600–$800. LinkedIn = highest CPL, SEO/email = lowest.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>Website / Landing Page Conversion</h3><span class="abbr">CVR</span></div>
-      <div class="card-body">
-        <p class="desc">% of visitors converting to a lead/demo (not bounce rate).</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt; 1.8%</td><td class="good">3–5%</td><td class="great">&gt; 7–10%</td></tr>
-          <tr><td><span class="seg">Service (Pro Svcs)</span></td><td class="bad">&lt; 2%</td><td class="good">4–6%</td><td class="great">&gt; 7%</td></tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>Return on Ad Spend</h3><span class="abbr">ROAS</span></div>
-      <div class="card-body">
-        <p class="desc">Gross revenue generated per $1 of advertising. <em>Source: GA4 / Looker Studio.</em></p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">B2B blended</span></td><td class="bad">&lt; 2:1</td><td class="good">4:1</td><td class="great">8:1+</td></tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>CAC Payback Period</h3><span class="abbr">CAC PB</span></div>
-      <div class="card-body">
-        <p class="desc">Months to recover acquisition cost — often more important than raw CAC for cash flow.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&gt; 18 mo</td><td class="good">8–12 mo</td><td class="great">&lt; 8 mo</td></tr>
-          <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&gt; 24 mo</td><td class="good">12 mo</td><td class="great">&lt; 6 mo</td></tr>
-        </table>
-        <div class="note">SaaS median payback ≈ 8.6 months. Targets: &lt;12mo SMB, &lt;18mo Mid-Market, &lt;24mo Enterprise.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>Email Engagement (CTR / Conversion)</h3><span class="abbr">EML</span></div>
-      <div class="card-body">
-        <p class="desc">Clicks &amp; conversions — treat open rates as directional only (privacy inflation).</p>
-        <table>
-          <tr><th>Metric</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Marketing CTR</span></td><td class="bad">&lt; 1%</td><td class="good">2–3.2%</td><td class="great">&gt; 4%</td></tr>
-          <tr><td><span class="seg">Tech email CVR</span></td><td class="bad">&lt; 1%</td><td class="good">2.5%</td><td class="great">&gt; 4%</td></tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="cat"><span class="dot mkt"></span>Marketing → Sales Bridge</div>
-
-    <div class="card">
-      <div class="card-head"><h3>Click-Through Rate</h3><span class="abbr">CTR</span></div>
-      <div class="card-body">
-        <p class="desc">% of people who saw an ad/result and clicked. Measures creative &amp; relevance.</p>
-        <table>
-          <tr><th>Channel</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">LinkedIn Ads</span></td><td class="bad">&lt; 0.4%</td><td class="good">0.5–1%</td><td class="great">10–20% (Thought-Leader Ads)</td></tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>Lead → MQL Conversion</h3><span class="abbr">L2M</span></div>
-      <div class="card-body">
-        <p class="desc">Quality of raw lead flow becoming marketing-qualified.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt; 25%</td><td class="good">31–39%</td><td class="great">45%+</td></tr>
-          <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&lt; 17%</td><td class="good">25–31%</td><td class="great">40%+</td></tr>
-        </table>
-        <div class="note">B2B average ≈ 31%; SaaS ≈ 39%; SEO-sourced leads ≈ 41%.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>MQL → SQL Conversion</h3><span class="abbr">M2S</span></div>
-      <div class="card-body">
-        <p class="desc">⭐ The biggest single drop in the funnel — the #1 marketing-to-sales handoff metric.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt; 13%</td><td class="good">20–25%</td><td class="great">35–40%+</td></tr>
-          <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&lt; 10%</td><td class="good">15–20%</td><td class="great">25–30%+</td></tr>
-        </table>
-        <div class="note">All-industry average just 13% (87% of MQLs never become SQLs). Behavioral scoring lifts this to 39–40%.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>Speed-to-Lead (Response Time)</h3><span class="abbr">STL</span></div>
-      <div class="card-body">
-        <p class="desc">Time from lead conversion to first sales contact — a leading conversion indicator.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&gt; 24 hrs</td><td class="good">&lt; 1 hour</td><td class="great">&lt; 5 minutes</td></tr>
-        </table>
-        <div class="note">1-hour follow-up = 53% conversion vs 17% after 24h. Contact within 5 min = 21× more likely to qualify.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>Marketing-Sourced Pipeline %</h3><span class="abbr">MSP</span></div>
-      <div class="card-body">
-        <p class="desc">Share of total revenue pipeline marketing originated — board-level alignment metric.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&lt; 30%</td><td class="good">40–50%</td><td class="great">&gt; 60%</td></tr>
-        </table>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- ================= SALES ================= -->
-  <section class="division" id="sales">
-
-    <div class="cat"><span class="dot sales"></span>Conversion &amp; Pipeline</div>
-
-    <div class="card">
-      <div class="card-head"><h3>Win Rate (Opportunity-to-Win)</h3><span class="abbr">CR</span></div>
-      <div class="card-body">
-        <p class="desc">% of qualified opportunities closed-won. Segment matters hugely.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Product — SMB</span></td><td class="bad">&lt; 20%</td><td class="good">25–32%</td><td class="great">35–40%+</td></tr>
-          <tr><td><span class="seg">Product — Enterprise</span></td><td class="bad">&lt; 12%</td><td class="good">15–20%</td><td class="great">25%+</td></tr>
-          <tr><td><span class="seg">Service (Pro Svcs)</span></td><td class="bad">&lt; 18%</td><td class="good">22–28%</td><td class="great">30%+</td></tr>
-        </table>
-        <div class="note">Average B2B win rate ≈ 21%. A 15% enterprise rate can beat a 35% SMB rate on revenue due to deal size.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>Sales Cycle Length</h3><span class="abbr">SCL</span></div>
-      <div class="card-body">
-        <p class="desc">Avg days from first sales contact / SQL to closed-won.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Product — SMB (&lt;$5K)</span></td><td class="bad">&gt; 90 d</td><td class="good">30–60 d</td><td class="great">&lt; 30 d</td></tr>
-          <tr><td><span class="seg">Product — Mid-market</span></td><td class="bad">&gt; 120 d</td><td class="good">60–90 d</td><td class="great">&lt; 60 d</td></tr>
-          <tr><td><span class="seg">Enterprise (&gt;$100K)</span></td><td class="bad">&gt; 9 mo</td><td class="good">6 mo</td><td class="great">&lt; 4 mo</td></tr>
-        </table>
-        <div class="note">SaaS average ≈ 84 days. Deals &lt;$25K ≈ 90 days; deals &gt;$100K run 6–9+ months.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>Average Contract Value</h3><span class="abbr">ACV</span></div>
-      <div class="card-body">
-        <p class="desc">Average revenue per closed-won deal — plus track its YoY growth.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">ACV Growth</span></td><td class="bad">Declining</td><td class="good">+20% YoY</td><td class="great">+20%+ w/ margin intact</td></tr>
-        </table>
-        <div class="note">Watch for one "whale" deal masking a decline in the rest of the book. Segment by rep / product line.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>Pipeline Coverage Ratio</h3><span class="abbr">PCR</span></div>
-      <div class="card-body">
-        <p class="desc">Pipeline value vs quota target.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&lt; 2.5x</td><td class="good">3–4x</td><td class="great">Right-sized (cov × win = quota)</td></tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>Pipeline Velocity</h3><span class="abbr">PV</span></div>
-      <div class="card-body">
-        <p class="desc">North-star metric: (Opps × Avg Deal Value × Win Rate) ÷ Sales Cycle Length.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">Declining MoM</td><td class="good">+10% QoQ</td><td class="great">Sustained +10% QoQ</td></tr>
-        </table>
-        <div class="note">SaaS/Tech ≈ $1,847/day velocity ($12.4K deals, 22% win, 67-day cycle). If velocity drops &gt;10% MoM, inspect slippage.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>Quota Attainment</h3><span class="abbr">QA</span></div>
-      <div class="card-body">
-        <p class="desc">% of reps hitting target — leading indicator of morale &amp; turnover risk.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Market avg.</span></td><td class="bad">&lt; 30% of reps</td><td class="good">50–60% of reps</td><td class="great">70%+ of reps</td></tr>
-        </table>
-        <div class="note">Up to 70% of reps missed quota in 2024; market average ≈ 43%. If &lt;30% hit, re-check whether targets are realistic.</div>
-      </div>
-    </div>
-
-    <div class="cat"><span class="dot sales"></span>Unit Economics</div>
-
-    <div class="card">
-      <div class="card-head"><h3>Customer Lifetime Value</h3><span class="abbr">LTV / CLV</span></div>
-      <div class="card-body">
-        <p class="desc">Total expected revenue from a customer over their lifespan.</p>
-        <table>
-          <tr><th>Segment</th><th>SMB</th><th>Mid-Market</th><th>Enterprise</th></tr>
-          <tr><td><span class="seg">Product (SaaS)</span></td><td>$15K–$40K</td><td>$80K–$200K</td><td class="great">$300K–$1M+</td></tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>LTV : CAC Ratio</h3><span class="abbr">LTV:CAC</span></div>
-      <div class="card-body">
-        <p class="desc">Return on acquisition investment — clearest unit-economics health signal.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt; 3:1</td><td class="good">3–4:1</td><td class="great">5:1+</td></tr>
-          <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&lt; 3:1</td><td class="good">3:1</td><td class="great">4–5:1+</td></tr>
-        </table>
-        <div class="note">SaaS median ≈ 3.6:1. Minimum 3:1 for sustainable growth; 4:1+ = scale-ready.</div>
-      </div>
-    </div>
-
-    <div class="cat"><span class="dot svc"></span>Service &amp; Retention (IT Delivery)</div>
-
-    <div class="card">
-      <div class="card-head"><h3>Billable Utilization Rate</h3><span class="abbr">UTIL</span></div>
-      <div class="card-body">
-        <p class="desc">% of consultant/engineer time that is billable — #1 profitability lever in services. <em>Source: PSA tool.</em></p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Consulting staff</span></td><td class="bad">&lt; 65%</td><td class="good">75–85%</td><td class="great">85%+</td></tr>
-        </table>
-        <div class="note">Keep above 75% weekly; if non-billable admin creeps above 15%, profitability erodes fast.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>Gross Margin (Services)</h3><span class="abbr">GM%</span></div>
-      <div class="card-body">
-        <p class="desc">Profitability of delivery after direct (COGS) costs.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Managed Services</span></td><td class="bad">&lt; 40%</td><td class="good">40–50%</td><td class="great">50%+</td></tr>
-          <tr><td><span class="seg">Professional Svcs</span></td><td class="bad">&lt; 50%</td><td class="good">60%</td><td class="great">85%+</td></tr>
-        </table>
-        <div class="note">Average MSP net margin ≈ 8–10%; best-in-class hit 15–20%+.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>Recurring Revenue Mix (MRR)</h3><span class="abbr">MRR%</span></div>
-      <div class="card-body">
-        <p class="desc">Share of revenue that is recurring vs one-off — predictability of the business.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Service (MSP)</span></td><td class="bad">&lt; 50%</td><td class="good">~60%</td><td class="great">75%+</td></tr>
-        </table>
-        <div class="note">Average MSP ≈ 60% recurring; avg MRR per SMB client $1,500–$5,000.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>Net Revenue Retention</h3><span class="abbr">NRR</span></div>
-      <div class="card-body">
-        <p class="desc">Revenue retained + expanded from existing customers — the engine of efficient growth.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt; 100%</td><td class="good">100–110%</td><td class="great">120%+ (net-negative churn)</td></tr>
-          <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&lt; 100%</td><td class="good">102–110%</td><td class="great">110%+</td></tr>
-        </table>
-        <div class="note">Market NRR compressed to ~101%. Pairing NRR &gt;120% with low CAC nearly doubles growth rate.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>MRR Churn Rate (Net)</h3><span class="abbr">CHURN</span></div>
-      <div class="card-body">
-        <p class="desc">Revenue lost to cancellations &amp; downgrades.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Product (monthly)</span></td><td class="bad">&gt; 2%</td><td class="good">&lt; 1–2%</td><td class="great">&lt; 0.5% / net-negative</td></tr>
-          <tr><td><span class="seg">Service (MSP net)</span></td><td class="bad">&gt; 1%</td><td class="good">&lt; 1%</td><td class="great">Net-negative</td></tr>
-        </table>
-        <div class="note">Gross MRR churn above 1–2% signals a product/ROI problem. The ideal end state is negative churn.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>SLA Compliance Rate</h3><span class="abbr">SLA</span></div>
-      <div class="card-body">
-        <p class="desc">% of service-level commitments met — tied directly to retention &amp; contract penalties.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Service (IT/MSP)</span></td><td class="bad">&lt; 95%</td><td class="good">97–98%</td><td class="great">99%+</td></tr>
-        </table>
-        <div class="note">A drop to 95% signals systemic issues. Breach penalties often run 10–25% credit on the monthly fee.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>Avg Monthly Revenue / Client</h3><span class="abbr">AMRC</span></div>
-      <div class="card-body">
-        <p class="desc">Revenue quality per account — signals upsell success &amp; service-mix richness.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Service (SMB clients)</span></td><td class="bad">&lt; $800</td><td class="good">$1,500–$5,000</td><td class="great">$5,000+</td></tr>
-        </table>
-        <div class="note">Baseline core monitoring/helpdesk ≈ $800–$1,200. Higher = selling security &amp; cloud, not break/fix.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><h3>Onboarding / Time-to-Value</h3><span class="abbr">TTV</span></div>
-      <div class="card-body">
-        <p class="desc">Days to get a new client live and seeing value — a leading churn predictor.</p>
-        <table>
-          <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
-          <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&gt; 14 days</td><td class="good">7–14 days</td><td class="great">&lt; 7 days</td></tr>
-        </table>
-        <div class="note">If onboarding takes 14+ days, churn risk rises and effective CAC inflates.</div>
-      </div>
-    </div>
-
-  </section>
-
-  <footer>
-    Benchmarks compiled from 2025–2026 B2B SaaS &amp; IT-services industry data. Always compare like-for-like (same segment, same MQL definition, same deal-size band). Marketing KPIs → CRM + Looker Studio · Service KPIs → PSA + ERP.
-  </footer>
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab active" data-tab="marketing">📈 Marketing</button>
+  <button class="tab" data-tab="sales">💰 Sales</button>
 </div>
 
+<!-- LEGEND -->
+<div class="legend">
+  <span><i class="pill bad"></i> Bad / Floor</span>
+  <span><i class="pill good"></i> Good / Healthy</span>
+  <span><i class="pill great"></i> Incredible / Top-tier</span>
+  <span style="color:var(--text-dim)">Benchmarks vary by segment, deal size &amp; MQL definition — compare like-for-like.</span>
+</div>
+
+<!-- ===================== MARKETING ===================== -->
+<section class="division active" id="marketing">
+
+  <p class="section-label">Marketing Division</p>
+  <h2 class="section-heading">Attraction &amp; Acquisition</h2>
+  <div class="section-divider"></div>
+
+  <div class="cat-label">Cost &amp; Efficiency</div>
+  <div class="card-grid">
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Cost Per Acquisition</h3><span class="abbr">CPA</span></div>
+      <p class="desc">Total cost to acquire a single paying customer. <em>Source: CRM + Looker Studio.</em></p>
+      <div class="note">Read alongside CAC and LTV — a low CPA on customers who churn fast is a false win.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Customer Acquisition Cost</h3><span class="abbr">CAC</span></div>
+      <p class="desc">All sales + marketing overhead (ad spend, salaries, software) to win a customer.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">New CAC Ratio</span></td><td class="bad">$2.82:$1</td><td class="good">$2.00:$1</td><td class="great">&lt;$1.00:$1</td></tr>
+      </table>
+      <div class="note">2025 median: $2.00 of S&amp;M to acquire $1 of new ARR (up 14% YoY). Expansion CAC is ~half the cost.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Cost Per Lead</h3><span class="abbr">CPL</span></div>
+      <p class="desc">Spend to generate a single raw lead — one layer above CPA/CAC.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product</span></td><td class="bad">&gt;$300</td><td class="good">$150–250</td><td class="great">&lt;$100</td></tr>
+        <tr><td><span class="seg">Service</span></td><td class="bad">&gt;$400</td><td class="good">$200–350</td><td class="great">&lt;$150</td></tr>
+      </table>
+      <div class="note">B2B average ≈ $200; demo-request CPL can hit $600–800. LinkedIn highest, SEO/email lowest.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Website / LP Conversion</h3><span class="abbr">CVR</span></div>
+      <p class="desc">% of visitors converting to a lead/demo (not bounce rate).</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;1.8%</td><td class="good">3–5%</td><td class="great">&gt;7–10%</td></tr>
+        <tr><td><span class="seg">Service (Pro Svcs)</span></td><td class="bad">&lt;2%</td><td class="good">4–6%</td><td class="great">&gt;7%</td></tr>
+      </table>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Return on Ad Spend</h3><span class="abbr">ROAS</span></div>
+      <p class="desc">Gross revenue generated per $1 of advertising. <em>Source: GA4 / Looker Studio.</em></p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">B2B blended</span></td><td class="bad">&lt;2:1</td><td class="good">4:1</td><td class="great">8:1+</td></tr>
+      </table>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>CAC Payback Period</h3><span class="abbr">CAC PB</span></div>
+      <p class="desc">Months to recover acquisition cost — often more important than raw CAC.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&gt;18 mo</td><td class="good">8–12 mo</td><td class="great">&lt;8 mo</td></tr>
+        <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&gt;24 mo</td><td class="good">12 mo</td><td class="great">&lt;6 mo</td></tr>
+      </table>
+      <div class="note">SaaS median ≈ 8.6 months. Targets: &lt;12mo SMB, &lt;18mo Mid-Market, &lt;24mo Enterprise.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Email Engagement</h3><span class="abbr">EML</span></div>
+      <p class="desc">Clicks &amp; conversions — treat open rates as directional only (privacy inflation).</p>
+      <table>
+        <tr><th>Metric</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Marketing CTR</span></td><td class="bad">&lt;1%</td><td class="good">2–3.2%</td><td class="great">&gt;4%</td></tr>
+        <tr><td><span class="seg">Tech email CVR</span></td><td class="bad">&lt;1%</td><td class="good">2.5%</td><td class="great">&gt;4%</td></tr>
+      </table>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Click-Through Rate</h3><span class="abbr">CTR</span></div>
+      <p class="desc">% who saw an ad/result and clicked. Measures creative &amp; relevance.</p>
+      <table>
+        <tr><th>Channel</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">LinkedIn Ads</span></td><td class="bad">&lt;0.4%</td><td class="good">0.5–1%</td><td class="great">10–20%*</td></tr>
+      </table>
+      <div class="note">*Thought-Leader Ads deliver 10–20× typical engagement vs standard 0.5–1% formats.</div>
+    </div>
+
+  </div>
+
+  <div class="cat-label">Marketing → Sales Bridge</div>
+  <div class="card-grid">
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Lead → MQL</h3><span class="abbr">L2M</span></div>
+      <p class="desc">Quality of raw lead flow becoming marketing-qualified.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;25%</td><td class="good">31–39%</td><td class="great">45%+</td></tr>
+        <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&lt;17%</td><td class="good">25–31%</td><td class="great">40%+</td></tr>
+      </table>
+      <div class="note">B2B average ≈ 31%; SaaS ≈ 39%; SEO-sourced leads ≈ 41%.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>MQL → SQL ★</h3><span class="abbr">M2S</span></div>
+      <p class="desc">The biggest single drop in the funnel — the #1 handoff metric.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;13%</td><td class="good">20–25%</td><td class="great">35–40%+</td></tr>
+        <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&lt;10%</td><td class="good">15–20%</td><td class="great">25–30%+</td></tr>
+      </table>
+      <div class="note">All-industry average just 13% — 87% of MQLs never become SQLs. Behavioral scoring lifts to 39–40%.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Speed-to-Lead</h3><span class="abbr">STL</span></div>
+      <p class="desc">Time from lead conversion to first sales contact — a leading conversion indicator.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&gt;24 hrs</td><td class="good">&lt;1 hr</td><td class="great">&lt;5 min</td></tr>
+      </table>
+      <div class="note">1-hour follow-up = 53% conversion vs 17% after 24h. Within 5 min = 21× more likely to qualify.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Marketing-Sourced Pipeline</h3><span class="abbr">MSP</span></div>
+      <p class="desc">Share of revenue pipeline marketing originated — board-level alignment metric.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&lt;30%</td><td class="good">40–50%</td><td class="great">&gt;60%</td></tr>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== SALES ===================== -->
+<section class="division" id="sales">
+
+  <p class="section-label">Sales Division</p>
+  <h2 class="section-heading">Conversion, Pipeline &amp; Retention</h2>
+  <div class="section-divider"></div>
+
+  <div class="cat-label">Conversion &amp; Pipeline</div>
+  <div class="card-grid">
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Win Rate</h3><span class="abbr">CR</span></div>
+      <p class="desc">% of qualified opportunities closed-won. Segment matters hugely.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product — SMB</span></td><td class="bad">&lt;20%</td><td class="good">25–32%</td><td class="great">35–40%+</td></tr>
+        <tr><td><span class="seg">Product — Enterprise</span></td><td class="bad">&lt;12%</td><td class="good">15–20%</td><td class="great">25%+</td></tr>
+        <tr><td><span class="seg">Service (Pro Svcs)</span></td><td class="bad">&lt;18%</td><td class="good">22–28%</td><td class="great">30%+</td></tr>
+      </table>
+      <div class="note">Average B2B win rate ≈ 21%. A 15% enterprise rate can beat 35% SMB on revenue due to deal size.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Sales Cycle Length</h3><span class="abbr">SCL</span></div>
+      <p class="desc">Avg days from first sales contact / SQL to closed-won.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">SMB (&lt;$5K)</span></td><td class="bad">&gt;90 d</td><td class="good">30–60 d</td><td class="great">&lt;30 d</td></tr>
+        <tr><td><span class="seg">Mid-market</span></td><td class="bad">&gt;120 d</td><td class="good">60–90 d</td><td class="great">&lt;60 d</td></tr>
+        <tr><td><span class="seg">Enterprise (&gt;$100K)</span></td><td class="bad">&gt;9 mo</td><td class="good">6 mo</td><td class="great">&lt;4 mo</td></tr>
+      </table>
+      <div class="note">SaaS average ≈ 84 days. Deals &lt;$25K ≈ 90 days; deals &gt;$100K run 6–9+ months.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Average Contract Value</h3><span class="abbr">ACV</span></div>
+      <p class="desc">Average revenue per closed-won deal — plus track its YoY growth.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">ACV Growth</span></td><td class="bad">Declining</td><td class="good">+20% YoY</td><td class="great">+20%+ w/ margin</td></tr>
+      </table>
+      <div class="note">Watch for one "whale" deal masking a decline across the rest of the book. Segment by rep / product.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Pipeline Coverage</h3><span class="abbr">PCR</span></div>
+      <p class="desc">Pipeline value vs quota target.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">&lt;2.5x</td><td class="good">3–4x</td><td class="great">cov × win = quota</td></tr>
+      </table>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Pipeline Velocity</h3><span class="abbr">PV</span></div>
+      <p class="desc">North-star: (Opps × Deal Value × Win Rate) ÷ Sales Cycle Length.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product &amp; Service</span></td><td class="bad">Declining MoM</td><td class="good">+10% QoQ</td><td class="great">Sustained +10% QoQ</td></tr>
+      </table>
+      <div class="note">SaaS/Tech ≈ $1,847/day ($12.4K deals, 22% win, 67-day cycle). Drop &gt;10% MoM → inspect slippage.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Quota Attainment</h3><span class="abbr">QA</span></div>
+      <p class="desc">% of reps hitting target — leading indicator of morale &amp; turnover risk.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Market avg.</span></td><td class="bad">&lt;30% reps</td><td class="good">50–60% reps</td><td class="great">70%+ reps</td></tr>
+      </table>
+      <div class="note">Up to 70% of reps missed quota in 2024; market average ≈ 43%. If &lt;30% hit, re-check targets.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Customer Lifetime Value</h3><span class="abbr">LTV</span></div>
+      <p class="desc">Total expected revenue from a customer over their lifespan.</p>
+      <table>
+        <tr><th>Segment</th><th>SMB</th><th>Mid-Market</th><th>Enterprise</th></tr>
+        <tr><td><span class="seg">Product (SaaS)</span></td><td>$15K–40K</td><td>$80K–200K</td><td class="great">$300K–1M+</td></tr>
+      </table>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>LTV : CAC Ratio</h3><span class="abbr">LTV:CAC</span></div>
+      <p class="desc">Return on acquisition investment — clearest unit-economics signal.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;3:1</td><td class="good">3–4:1</td><td class="great">5:1+</td></tr>
+        <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&lt;3:1</td><td class="good">3:1</td><td class="great">4–5:1+</td></tr>
+      </table>
+      <div class="note">SaaS median ≈ 3.6:1. Minimum 3:1 for sustainable growth; 4:1+ = scale-ready.</div>
+    </div>
+
+  </div>
+
+  <div class="cat-label">Service &amp; Retention — IT Delivery</div>
+  <div class="card-grid">
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Billable Utilization</h3><span class="abbr">UTIL</span></div>
+      <p class="desc">% of engineer/consultant time that is billable — #1 services profit lever. <em>Source: PSA.</em></p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Consulting staff</span></td><td class="bad">&lt;65%</td><td class="good">75–85%</td><td class="great">85%+</td></tr>
+      </table>
+      <div class="note">Keep above 75% weekly; if non-billable admin creeps above 15%, profitability erodes fast.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Gross Margin (Services)</h3><span class="abbr">GM%</span></div>
+      <p class="desc">Profitability of delivery after direct (COGS) costs.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Managed Services</span></td><td class="bad">&lt;40%</td><td class="good">40–50%</td><td class="great">50%+</td></tr>
+        <tr><td><span class="seg">Professional Svcs</span></td><td class="bad">&lt;50%</td><td class="good">60%</td><td class="great">85%+</td></tr>
+      </table>
+      <div class="note">Average MSP net margin ≈ 8–10%; best-in-class hit 15–20%+.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Recurring Revenue Mix</h3><span class="abbr">MRR%</span></div>
+      <p class="desc">Share of revenue that is recurring vs one-off — predictability of the business.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Service (MSP)</span></td><td class="bad">&lt;50%</td><td class="good">~60%</td><td class="great">75%+</td></tr>
+      </table>
+      <div class="note">Average MSP ≈ 60% recurring; avg MRR per SMB client $1,500–5,000.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Net Revenue Retention</h3><span class="abbr">NRR</span></div>
+      <p class="desc">Revenue retained + expanded from existing customers — engine of efficient growth.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product (SaaS)</span></td><td class="bad">&lt;100%</td><td class="good">100–110%</td><td class="great">120%+</td></tr>
+        <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&lt;100%</td><td class="good">102–110%</td><td class="great">110%+</td></tr>
+      </table>
+      <div class="note">Market NRR ≈ 101%. Pairing NRR &gt;120% with low CAC nearly doubles growth rate.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>MRR Churn (Net)</h3><span class="abbr">CHURN</span></div>
+      <p class="desc">Revenue lost to cancellations &amp; downgrades.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Product (monthly)</span></td><td class="bad">&gt;2%</td><td class="good">&lt;1–2%</td><td class="great">&lt;0.5% / net-neg</td></tr>
+        <tr><td><span class="seg">Service (MSP net)</span></td><td class="bad">&gt;1%</td><td class="good">&lt;1%</td><td class="great">Net-negative</td></tr>
+      </table>
+      <div class="note">Gross MRR churn above 1–2% signals a product/ROI problem. Ideal end state = negative churn.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>SLA Compliance</h3><span class="abbr">SLA</span></div>
+      <p class="desc">% of service-level commitments met — tied to retention &amp; contract penalties.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Service (IT/MSP)</span></td><td class="bad">&lt;95%</td><td class="good">97–98%</td><td class="great">99%+</td></tr>
+      </table>
+      <div class="note">A drop to 95% signals systemic issues. Breach penalties often run 10–25% credit on the monthly fee.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Avg Monthly Rev / Client</h3><span class="abbr">AMRC</span></div>
+      <p class="desc">Revenue quality per account — signals upsell success &amp; service-mix richness.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Service (SMB)</span></td><td class="bad">&lt;$800</td><td class="good">$1,500–5,000</td><td class="great">$5,000+</td></tr>
+      </table>
+      <div class="note">Baseline monitoring/helpdesk ≈ $800–1,200. Higher = selling security &amp; cloud, not break/fix.</div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-head"><h3>Onboarding / Time-to-Value</h3><span class="abbr">TTV</span></div>
+      <p class="desc">Days to get a new client live and seeing value — a leading churn predictor.</p>
+      <table>
+        <tr><th>Segment</th><th>Bad</th><th>Good</th><th>Incredible</th></tr>
+        <tr><td><span class="seg">Service (IT)</span></td><td class="bad">&gt;14 days</td><td class="good">7–14 days</td><td class="great">&lt;7 days</td></tr>
+      </table>
+      <div class="note">If onboarding takes 14+ days, churn risk rises and effective CAC inflates.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- IMPLEMENTATION -->
+<section id="implementation">
+  <p class="section-label">Build Notes</p>
+  <h2 class="section-heading">Where each KPI lives</h2>
+  <div class="section-divider"></div>
+  <ul class="impl-list reveal">
+    <li><strong>Marketing KPIs</strong> — pull conversion stages &amp; CPL from CRM lifecycle stages; blend ad spend in Looker Studio.</li>
+    <li><strong>Sales KPIs</strong> — all native to your CRM pipeline; time-stamped stages drive cycle length and velocity.</li>
+    <li><strong>Service KPIs</strong> — utilization, SLA &amp; gross margin come from your <strong>PSA tool</strong> (ConnectWise, Autotask, Kantata) and finance/ERP, not the CRM.</li>
+    <li>Use <strong>Looker Studio</strong> as the master layer: GA4 for top-of-funnel, ad platforms for spend, CRM for bottom-of-funnel, PSA for delivery.</li>
+  </ul>
+</section>
+
+<footer>
+  Benchmarks compiled from 2025–2026 B2B SaaS &amp; IT-services industry data. Always compare like-for-like — same segment, same MQL definition, same deal-size band.
+</footer>
+
 <script>
-  document.querySelectorAll('.tab').forEach(tab=>{
-    tab.addEventListener('click',()=>{
-      document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-      document.querySelectorAll('.division').forEach(d=>d.classList.remove('active'));
-      tab.classList.add('active');
-      document.getElementById(tab.dataset.tab).classList.add('active');
-      window.scrollTo({top:0,behavior:'smooth'});
-    });
-  });
+  // Tab switching
+  const tabs = document.querySelectorAll('.tab');
+  const divisions = document.querySelectorAll('.division');
+  function activate(name){
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+    divisions.forEach(d => d.classList.toggle('active', d.id === name));
+    runReveal();
+  }
+  tabs.forEach(tab => tab.addEventListener('click', () => activate(tab.dataset.tab)));
+  document.querySelectorAll('[data-jump]').forEach(link =>
+    link.addEventListener('click', () => { activate(link.dataset.jump); window.scrollTo({top:0,behavior:'smooth'}); })
+  );
+
+  // Reveal on scroll
+  function runReveal(){
+    const els = document.querySelectorAll('.division.active .reveal, #implementation .reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    els.forEach(el => obs.observe(el));
+  }
+  runReveal();
 </script>
 
 </body>
